@@ -1,6 +1,8 @@
-# iiit_sonepat_stable
+# IIIT Sonepat App
 
 College App made by students of IIIT Sonepat for the students of IIIT Sonepat
+
+### To contribute to the project please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Getting Started
 
