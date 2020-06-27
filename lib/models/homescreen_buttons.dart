@@ -9,7 +9,7 @@ class HomeScreenButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container (
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(15),
         child: Center (
           child: Column (
             children: <Widget>[

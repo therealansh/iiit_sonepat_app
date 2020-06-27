@@ -54,54 +54,60 @@ class HomePage extends StatelessWidget {
               ),
               
               Text(uName, style: TextStyle(fontSize: 36, color: Color.fromRGBO(199, 199, 199, 1),),),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
                 children: <Widget>[
-                  HomeScreenButton(
-                    icon: Icons.account_circle,
-                    text: 'My Profile',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      HomeScreenButton(
+                        icon: Icons.account_circle,
+                        text: 'My Profile',
+                      ),
+                      HomeScreenButton(
+                        icon: Icons.art_track,
+                        text: 'Attendance',
+                      ),
+                      HomeScreenButton(
+                        icon: Icons.local_library,
+                        text: 'Homework',
+                      ),
+                    ],
                   ),
-                  HomeScreenButton(
-                    icon: Icons.art_track,
-                    text: 'Attendance',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      HomeScreenButton(
+                        icon: Icons.book,
+                        text: 'Circulars',
+                      ),
+                      HomeScreenButton(
+                        icon: Icons.insert_invitation,
+                        text: 'Time Table',
+                      ),
+                      HomeScreenButton(
+                        icon: Icons.calendar_today,
+                        text: 'Calendar',
+                      ),
+                    ],
                   ),
-                  HomeScreenButton(
-                    icon: Icons.local_library,
-                    text: 'Homework',
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  HomeScreenButton(
-                    icon: Icons.book,
-                    text: 'Circulars',
-                  ),
-                  HomeScreenButton(
-                    icon: Icons.insert_invitation,
-                    text: 'Time Table',
-                  ),
-                  HomeScreenButton(
-                    icon: Icons.calendar_today,
-                    text: 'Calendar',
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  HomeScreenButton(
-                    icon: Icons.perm_media,
-                    text: 'Gallery',
-                  ),
-                  HomeScreenButton(
-                    icon: Icons.people,
-                    text: 'Staff Details',
-                  ),
-                  HomeScreenButton(
-                    icon: Icons.view_list,
-                    text: 'Results',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      HomeScreenButton(
+                        icon: Icons.perm_media,
+                        text: 'Gallery',
+                      ),
+                      HomeScreenButton(
+                        icon: Icons.people,
+                        text: 'Staff Details',
+                      ),
+                      HomeScreenButton(
+                        icon: Icons.view_list,
+                        text: 'Results',
+                      ),
+                    ],
                   ),
                 ],
               ),
