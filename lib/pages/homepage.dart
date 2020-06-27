@@ -1,37 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 
-AppBar myAppBar() {
-  return AppBar(
-    elevation: 10,
-    backgroundColor: Colors.black87,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(5),
-              child: IconButton(
-                onPressed: (){},
-                highlightColor: Color.fromRGBO(247, 200, 42, 1),
-                splashColor: Color.fromRGBO(247, 200, 42, 1),
-                icon: Icon(Icons.menu, color: Color.fromRGBO(199, 199, 199, 1),)
+
+class HomeAppBar extends StatelessWidget with PreferredSizeWidget{
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      elevation: 10,
+      backgroundColor: Colors.black87,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: IconButton(
+                  onPressed: () {},
+                  highlightColor: Color.fromRGBO(247, 200, 42, 1),
+                  splashColor: Color.fromRGBO(247, 200, 42, 1),
+                  icon: Icon(
+                    Icons.menu, color: Color.fromRGBO(199, 199, 199, 1),)
+                ),
               ),
-            ),
-            Text('Home',
-              style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
-          ],
-        ),
-        IconButton(
-          icon: Icon(Icons.notifications),
-          highlightColor: Color.fromRGBO(247, 200, 42, 1),
-          splashColor: Color.fromRGBO(247, 200, 42, 1),
-          onPressed: (){},
-        )
-      ],
-    ),
-  );
+              Text('Home',
+                style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
+            ],
+          ),
+          IconButton(
+            icon: Icon(Icons.notifications),
+            highlightColor: Color.fromRGBO(247, 200, 42, 1),
+            splashColor: Color.fromRGBO(247, 200, 42, 1),
+            onPressed: () {},
+          )
+        ],
+      ),
+    );
+  }
 }
 
 
@@ -40,7 +48,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final String uName = "Student Test"; //User Name Goes Here
     return  Scaffold(
-        appBar: myAppBar(),
+        appBar: HomeAppBar(),
         backgroundColor: Color.fromRGBO(34, 36, 38, 1),
         body: Center(
           child: Column(
