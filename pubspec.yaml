@@ -21,10 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  firebase_analytics:
-  cloud_firestore:
-  firebase_core:
-  firebase_auth:
+  firebase_analytics: ^5.0.2
+  cloud_firestore: ^0.12.9+5
+  firebase_core: ^0.4.5
+  firebase_auth: ^0.14.0+5
   flutter:
     sdk: flutter
 
