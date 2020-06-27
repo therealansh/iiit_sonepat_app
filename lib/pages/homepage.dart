@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 
-
-class HomeAppBar extends StatelessWidget with PreferredSizeWidget{
-  @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+class HomePage extends StatelessWidget {
   
-  @override
-  Widget build(BuildContext context) {
+  AppBar myAppBar() {
     return AppBar(
       elevation: 10,
       backgroundColor: Colors.black87,
@@ -40,15 +36,12 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget{
       ),
     );
   }
-}
-
-
-class HomePage extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     final String uName = "Student Test"; //User Name Goes Here
     return  Scaffold(
-        appBar: HomeAppBar(),
+        appBar: myAppBar(),
         backgroundColor: Color.fromRGBO(34, 36, 38, 1),
         body: Center(
           child: Column(
