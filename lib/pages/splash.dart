@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:iiit_sonepat_stable/pages/homepage.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -66,10 +67,8 @@ class _SplashPage extends State<SplashPage>{
   }
 
   //HomePage if user is authenticated
-  Scaffold buildAuthPage(){
-    return Scaffold(
-      body: RaisedButton(onPressed: (){logout();},child:Text("logout")),
-    );
+  Widget buildAuthPage(){
+    return HomePage();
   }
 
   //Login Page if unauthenticated
