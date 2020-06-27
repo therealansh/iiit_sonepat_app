@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iiit_sonepat_stable/models/homescreen_buttons.dart';
+import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 
 AppBar myAppBar() {
   return AppBar(
@@ -39,9 +39,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String uName = "Student Test"; //User Name Goes Here
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return  Scaffold(
         appBar: myAppBar(),
         backgroundColor: Color.fromRGBO(34, 36, 38, 1),
         body: Center(
@@ -114,7 +112,6 @@ class HomePage extends StatelessWidget {
             ],
           ),
           ),
-        ),
-      );
+        );
   }
 }
