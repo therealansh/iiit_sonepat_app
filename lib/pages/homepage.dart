@@ -12,11 +12,11 @@ AppBar myAppBar() {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.all(5),
-              child: InkWell(
-                onTap: (){},
-                highlightColor: Colors.grey,
-                splashColor: Colors.blueGrey,
-                child: Icon(Icons.menu, color: Color.fromRGBO(199, 199, 199, 1),)
+              child: IconButton(
+                onPressed: (){},
+                highlightColor: Color.fromRGBO(247, 200, 42, 1),
+                splashColor: Color.fromRGBO(247, 200, 42, 1),
+                icon: Icon(Icons.menu, color: Color.fromRGBO(199, 199, 199, 1),)
               ),
             ),
             Text('Home',
@@ -25,8 +25,8 @@ AppBar myAppBar() {
         ),
         IconButton(
           icon: Icon(Icons.notifications),
-          highlightColor: Colors.grey,
-          splashColor: Colors.blueGrey,
+          highlightColor: Color.fromRGBO(247, 200, 42, 1),
+          splashColor: Color.fromRGBO(247, 200, 42, 1),
           onPressed: (){},
         )
       ],

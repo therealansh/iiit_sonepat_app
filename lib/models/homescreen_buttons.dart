@@ -23,8 +23,8 @@ class HomeScreenButton extends StatelessWidget {
                           iconSize: 40,
                           color: Color.fromRGBO(199, 199, 199, 1),
                           icon: Icon(icon),
-                          splashColor: Colors.blue,
-                          highlightColor: Colors.blue,
+                          splashColor: Color.fromRGBO(10, 71, 131, 1),
+                          highlightColor: Color.fromRGBO(10, 71, 131, 1),
                           onPressed: (){
                             print('Hi! '+text);
                           },
