@@ -64,64 +64,70 @@ class HomePage extends StatelessWidget {
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
                   children: <Widget>[
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          HomeScreenButton(
-                            icon: Icons.account_circle,
-                            text: 'My Profile',
-                          ),
-                          HomeScreenButton(
-                            icon: Icons.art_track,
-                            text: 'Attendance',
-                          ),
-                          HomeScreenButton(
-                            icon: Icons.local_library,
-                            text: 'Homework',
-                          ),
-                        ],
+                    Center(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            HomeScreenButton(
+                              icon: Icons.account_circle,
+                              text: 'My Profile',
+                            ),
+                            HomeScreenButton(
+                              icon: Icons.art_track,
+                              text: 'Attendance',
+                            ),
+                            HomeScreenButton(
+                              icon: Icons.local_library,
+                              text: 'Homework',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          HomeScreenButton(
-                            icon: Icons.book,
-                            text: 'Circulars',
-                          ),
-                          HomeScreenButton(
-                            icon: Icons.insert_invitation,
-                            text: 'Time Table',
-                          ),
-                          HomeScreenButton(
-                            icon: Icons.calendar_today,
-                            text: 'Calendar',
-                          ),
-                        ],
+                    Center(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            HomeScreenButton(
+                              icon: Icons.book,
+                              text: 'Circulars',
+                            ),
+                            HomeScreenButton(
+                              icon: Icons.insert_invitation,
+                              text: 'Time Table',
+                            ),
+                            HomeScreenButton(
+                              icon: Icons.calendar_today,
+                              text: 'Calendar',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          HomeScreenButton(
-                            icon: Icons.perm_media,
-                            text: 'Gallery',
-                          ),
-                          HomeScreenButton(
-                            icon: Icons.people,
-                            text: 'Staff Details',
-                          ),
-                          HomeScreenButton(
-                            icon: Icons.view_list,
-                            text: 'Results',
-                          ),
-                        ],
+                    Center(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            HomeScreenButton(
+                              icon: Icons.perm_media,
+                              text: 'Gallery',
+                            ),
+                            HomeScreenButton(
+                              icon: Icons.people,
+                              text: 'Staff Details',
+                            ),
+                            HomeScreenButton(
+                              icon: Icons.view_list,
+                              text: 'Results',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
