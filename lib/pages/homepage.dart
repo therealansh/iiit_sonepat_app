@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iiit_sonepat_stable/pages/splash.dart';
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 
 class HomePage extends StatelessWidget {
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.notifications),
             highlightColor: Color.fromRGBO(247, 200, 42, 1),
             splashColor: Color.fromRGBO(247, 200, 42, 1),
-            onPressed: () {},
+            onPressed: ()async {await auth.signOut();},
           )
         ],
       ),
