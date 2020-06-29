@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final String uName = "Student Test"; //User Name Goes Here
     return Scaffold(
-      appBar: myAppBar(),
+      //appBar: myAppBar(),
       backgroundColor: Color.fromRGBO(34, 36, 38, 1),
       body: Center(
         child: Column(

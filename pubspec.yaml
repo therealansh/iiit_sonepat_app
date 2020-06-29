@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  backdrop: ^0.4.1
   firebase_analytics: ^5.0.2
   cloud_firestore: ^0.12.9+5
   firebase_core: ^0.4.5
