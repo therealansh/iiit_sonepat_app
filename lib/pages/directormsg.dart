@@ -37,8 +37,8 @@ class DirectorMsg extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: ListView(
           children: <Widget>[
-            Image.asset(
-              'assets/director.jpg',
+            Image.network(
+              'http://iiitsonepat.ac.in/storage/Photo-Director.jpg',
               width: 180,
               height: 180,
             ),
