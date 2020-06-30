@@ -63,7 +63,7 @@ class _BackdropHome extends State<BackdropHome>{
               Container(
                 child: CircleAvatar(
                   backgroundColor: Color.fromRGBO(79, 84, 89, 1),
-                  backgroundImage: AssetImage('assets/logo.png'),
+                  backgroundImage: AssetImage('assets/images/logo.png'),
                   radius: 50.0,
                 ),
               )
