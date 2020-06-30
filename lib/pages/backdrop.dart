@@ -51,10 +51,6 @@ class _BackdropHome extends State<BackdropHome>{
                 title: Text("About Development",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
                 leading: Icon(Icons.code),
               ),
-              ListTile(
-                title: Text("About Development",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
-                leading: Icon(Icons.people),
-              ),
             ],
         onTap: (value) => {setState(() => current = value )},
       ),
@@ -67,7 +63,7 @@ class _BackdropHome extends State<BackdropHome>{
               Container(
                 child: CircleAvatar(
                   backgroundColor: Color.fromRGBO(79, 84, 89, 1),
-                  backgroundImage: AssetImage('assets/logo.png'),
+                  backgroundImage: AssetImage('assets/images/logo.png'),
                   radius: 50.0,
                 ),
               )
