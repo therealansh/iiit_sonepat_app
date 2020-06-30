@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/pages/splash.dart';
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
+import 'package:iiit_sonepat_stable/pages/faculty_grid.dart';
 
 class HomePage extends StatelessWidget {
   AppBar myAppBar() {
@@ -121,7 +122,8 @@ class HomePage extends StatelessWidget {
                             ),
                             HomeScreenButton(
                               icon: Icons.people,
-                              text: 'Staff Details',
+                              text: 'Faculty',
+                              pageToOpen: FacultyGrid(),
                             ),
                             HomeScreenButton(
                               icon: Icons.view_list,

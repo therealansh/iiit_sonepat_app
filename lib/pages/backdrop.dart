@@ -51,6 +51,10 @@ class _BackdropHome extends State<BackdropHome>{
                 title: Text("About Development",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
                 leading: Icon(Icons.code),
               ),
+              ListTile(
+                title: Text("About Development",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
+                leading: Icon(Icons.people),
+              ),
             ],
         onTap: (value) => {setState(() => current = value )},
       ),
