@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/pages/backdrop.dart';
-import 'package:iiit_sonepat_stable/pages/homepage.dart';
-
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 class SplashPage extends StatefulWidget{
