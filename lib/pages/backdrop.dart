@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/rendering.dart';
 import 'package:iiit_sonepat_stable/pages/directormsg.dart';
+import 'package:iiit_sonepat_stable/pages/faculty_grid.dart';
 import 'package:iiit_sonepat_stable/pages/homepage.dart';
 import 'package:backdrop/app_bar.dart';
 import 'dev.dart';
@@ -21,8 +22,8 @@ class _BackdropHome extends State<BackdropHome>{
     );
   }
 
-  List<Widget> _pages = [HomePage(),About(),DirectorMsg(),AboutDev()];
-  List<String> _title = ["Home", "About", "Director's Message", "About Development"];
+  List<Widget> _pages = [HomePage(),FacultyGrid(),About(),DirectorMsg(),AboutDev()];
+  List<String> _title = ["Home","Faculty", "About", "Director's Message", "About Development"];
   int current = 0;
   @override
   Widget build(context){
@@ -38,6 +39,10 @@ class _BackdropHome extends State<BackdropHome>{
               ListTile(
                 title: Text("Home",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1)),),
                 leading: Icon(Icons.home),
+              ),
+              ListTile(
+                title: Text("Faculty",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
+                leading: Icon(Icons.class_),
               ),
               ListTile(
                 title: Text("About",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),

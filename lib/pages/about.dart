@@ -30,7 +30,7 @@ class _About extends State<About> {
               ),
             ),
             Image.asset(
-              'assets/logo.png',
+              'assets/images/logo.png',
               width: 50,
             ),
           ],
