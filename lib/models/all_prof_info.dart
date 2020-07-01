@@ -2,12 +2,12 @@ import 'package:iiit_sonepat_stable/pages/prof_info.dart';
 
 ProfInfo diddiK() {
   return ProfInfo(
-      name: 'Dr. Diddi Kumara Swamy',
-      email: 'drdiddiiiitsonepat@gmail.com',
-      image: 'assets/images/diddi.jpg',
-      phone: '9849677353',
-      department: 'Mathematics',
-      position: 'Associate Professor',
+    name: 'Dr. Diddi Kumara Swamy',
+    email: 'drdiddiiiitsonepat@gmail.com',
+    image: 'assets/images/diddi.jpg',
+    phone: '9849677353',
+    department: 'Mathematics',
+    position: 'Associate Professor',
   );
 }
 
