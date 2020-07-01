@@ -35,7 +35,8 @@ class ProfCard extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Color.fromRGBO(199, 199, 199, 1),
+                      // ignore: deprecated_member_use
+                      color: Theme.of(context).textTheme.body1.color,
                     ),
                   ),
                 ),

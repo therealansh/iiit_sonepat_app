@@ -28,7 +28,7 @@ class FacultyGrid extends StatelessWidget {
     return Scaffold(
       appBar: myAppBar(),
       body: Container(
-        color: Color(0xFF13191B),
+        color: Theme.of(context).primaryColor,
         child: GridView.count(
           crossAxisCount: 2,
           childAspectRatio: 1 / 1.1,

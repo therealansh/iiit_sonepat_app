@@ -3,21 +3,22 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/models/users.dart';
 import 'package:iiit_sonepat_stable/pages/backdrop.dart';
+
 final FirebaseAuth auth = FirebaseAuth.instance;
 final userRef = Firestore.instance.collection('users');
 User currentUser;
 
-class SplashPage extends StatefulWidget{
+class SplashPage extends StatefulWidget {
   _SplashPage createState() => _SplashPage();
 }
 
-class _SplashPage extends State<SplashPage>{
+class _SplashPage extends State<SplashPage> {
   final GlobalKey<FormState> _loginKey = GlobalKey<FormState>();
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     getUser();
   }
@@ -40,34 +41,52 @@ class _SplashPage extends State<SplashPage>{
     }
   }
 
-  void _showAlert(String err){
+  void _showAlert(String err) {
     showDialog(
-      context: context,
-      builder: (context){
-        return AlertDialog(
-          backgroundColor: Color(0xFF2E313D),
-          title: Text("Wrong Credentials",style: TextStyle(color:Color.fromRGBO(199, 199, 199, 0.66)),),
-          content: Text(err, style:TextStyle(color:Color.fromRGBO(199, 199, 199, 0.66))),
-          actions: <Widget>[
-            FlatButton(onPressed: (){Navigator.pop(context);}, child: Text("Close"))
-          ],
-        );
-      }
-    );
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Color(0xFF2E313D),
+            title: Text(
+              "Wrong Credentials",
+              style: TextStyle(
+                // ignore: deprecated_member_use
+                color: Theme.of(context).textTheme.body2.color,
+              ),
+            ),
+            content: Text(
+              err,
+              style: TextStyle(
+                // ignore: deprecated_member_use
+                color: Theme.of(context).textTheme.body2.color,
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Close",
+                ),
+              ),
+            ],
+          );
+        });
   }
 
   String pwdValidator(String value) {
     if (value.length < 8) {
       return 'Password must be longer than 8 characters';
-    }
-    else {
+    } else {
       return null;
     }
   }
 
-  login() async{
+  login() async {
     try {
-      await auth.signInWithEmailAndPassword(email: email.text, password: pass.text);
+      await auth.signInWithEmailAndPassword(
+          email: email.text, password: pass.text);
     } catch (e) {
       _showAlert(e.message);
     }
@@ -78,94 +97,100 @@ class _SplashPage extends State<SplashPage>{
   }
 
   //HomePage if user is authenticated
-  Widget buildAuthPage(){
+  Widget buildAuthPage() {
     //return HomePage();
-    return BackdropHome(user: currentUser,);
+    return BackdropHome(
+      user: currentUser,
+    );
   }
 
   //Login Page if unauthenticated
-  Scaffold buildUnAuthPage(){
+  Scaffold buildUnAuthPage() {
     return Scaffold(
       backgroundColor: Color(0xFF13191b),
       body: Container(
         child: ListView(
           children: <Widget>[
             Container(
-              constraints: BoxConstraints.expand(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height*0.5,
-              ),
-              child:Image.asset('assets/images/logo.png')
-              //child: Image.network("https://upload.wikimedia.org/wikipedia/en/0/05/Indian_Institute_of_Information_Technology%2C_Sonepat_Logo.png")
-            ),
+                constraints: BoxConstraints.expand(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.5,
+                ),
+                child: Image.asset('assets/images/logo.png')
+                //child: Image.network("https://upload.wikimedia.org/wikipedia/en/0/05/Indian_Institute_of_Information_Technology%2C_Sonepat_Logo.png")
+                ),
             Form(
               key: _loginKey,
               child: Column(
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(top:10.0,left:20.0,right:20.0),
+                    padding:
+                        EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
                     child: TextFormField(
                       controller: email,
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) => emailValidator(value),
                       decoration: InputDecoration(
-                        //labelText: "E-Mail",
-                        hintText: "student@iiitsonepat.com",
-                        prefixIcon: Icon(Icons.email),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        fillColor: Color(0xFF2E313D),
-                        filled: true
-                      ),
+                          //labelText: "E-Mail",
+                          hintText: "student@iiitsonepat.com",
+                          prefixIcon: Icon(Icons.email),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          fillColor: Color(0xFF2E313D),
+                          filled: true),
                       style: TextStyle(
                         backgroundColor: Color(0xFF2E313D),
-                        color: Color.fromRGBO(199, 199, 199, 0.66),
-                        decorationColor: Color(0xFF2e313d)
+                        // ignore: deprecated_member_use
+                        color: Theme.of(context).textTheme.body2.color,
+                        decorationColor: Color(0xFF2e313d),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top:10.0,left:20.0,right:20.0 ),
+                    padding:
+                        EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
                     child: TextFormField(
                       controller: pass,
                       obscureText: true,
-                      validator:(value) => pwdValidator(value),
+                      validator: (value) => pwdValidator(value),
                       decoration: InputDecoration(
-                        //labelText: "Password",
-                        hintText: "Password",
-                        prefixIcon: Icon(Icons.arrow_forward_ios),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0)
-                        ),
-                        fillColor: Color(0xFF2e313d),
-                        filled: true
-                      ),
+                          //labelText: "Password",
+                          hintText: "Password",
+                          prefixIcon: Icon(Icons.arrow_forward_ios),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          fillColor: Color(0xFF2e313d),
+                          filled: true),
                       style: TextStyle(
                         backgroundColor: Color(0xFF2E313D),
-                        color: Color.fromRGBO(199, 199, 199, 0.66),
-                        decorationColor: Color(0xFF2e313d)
+                        // ignore: deprecated_member_use
+                        color: Theme.of(context).textTheme.body2.color,
+                        decorationColor: Color(0xFF2e313d),
                       ),
                     ),
                   ),
                 ],
-              ), 
+              ),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(75, 20, 75, 0),
               child: RaisedButton(
-              onPressed: (){
-                if(_loginKey.currentState.validate()){
-                  print("success"); 
-                  login();
-                }
-              },
-              child: Text("Login",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,)),
-              color: Color(0xFFf7c82a),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0)
+                onPressed: () {
+                  if (_loginKey.currentState.validate()) {
+                    print("success");
+                    login();
+                  }
+                },
+                child: Text("Login",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    )),
+                color: Color(0xFFf7c82a),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)),
               ),
-            ),
             ),
           ],
         ),
@@ -173,19 +198,19 @@ class _SplashPage extends State<SplashPage>{
     );
   }
 
-  Widget build(context){
+  Widget build(context) {
     return StreamBuilder(
-      stream: auth.onAuthStateChanged,
-      builder: (context,snap) {
-        if(snap.hasData){
-          if(snap.data.providerData.length == 1){
-            return buildAuthPage();
-          }else{
-            return buildAuthPage();
+        stream: auth.onAuthStateChanged,
+        builder: (context, snap) {
+          if (snap.hasData) {
+            if (snap.data.providerData.length == 1) {
+              return buildAuthPage();
+            } else {
+              return buildAuthPage();
+            }
+          } else {
+            return buildUnAuthPage();
           }
-        }else{
-          return buildUnAuthPage();
-        }
-    });
+        });
   }
 }
