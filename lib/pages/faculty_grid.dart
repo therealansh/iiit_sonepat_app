@@ -2,10 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/widgets/prof_card.dart';
 import 'package:iiit_sonepat_stable/models/all_prof_info.dart';
 
+AppBar myAppBar() {
+  return AppBar(
+    elevation: 10,
+    backgroundColor: Color.fromRGBO(79, 84, 89, 1),
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text('Faculty',
+          style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
+        IconButton(
+          icon: Icon(Icons.search),
+          highlightColor: Color.fromRGBO(247, 200, 42, 1),
+          splashColor: Color.fromRGBO(247, 200, 42, 1),
+          onPressed: () {},
+        ),
+      ],
+    ),
+  );
+}
+
+
 class FacultyGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: myAppBar(),
       body: Container(
         color: Color(0xFF13191B),
         child: GridView.count(
