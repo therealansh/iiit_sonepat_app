@@ -1,9 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/pages/splash.dart';
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 import 'package:iiit_sonepat_stable/pages/faculty_grid.dart';
+import 'package:iiit_sonepat_stable/models/users.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget{
+  _HomePage createState() => _HomePage();
+}
+
+class _HomePage extends State<HomePage> {
   AppBar myAppBar() {
     return AppBar(
       elevation: 10,
@@ -39,9 +45,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final String uName = "Student Test"; //User Name Goes Here
+    final String uName = currentUser.name; //User Name Goes Here
     return Scaffold(
       //appBar: myAppBar(),
       backgroundColor: Color.fromRGBO(34, 36, 38, 1),

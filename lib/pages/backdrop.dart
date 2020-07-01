@@ -4,11 +4,15 @@ import 'package:flutter/rendering.dart';
 import 'package:iiit_sonepat_stable/pages/directormsg.dart';
 import 'package:iiit_sonepat_stable/pages/homepage.dart';
 import 'package:backdrop/app_bar.dart';
+import 'package:iiit_sonepat_stable/pages/splash.dart';
 import 'dev.dart';
 import 'about.dart';
 import 'package:backdrop/scaffold.dart';
+import 'package:iiit_sonepat_stable/models/users.dart';
 
 class BackdropHome extends StatefulWidget{
+  final User user;
+  BackdropHome({this.user});
   _BackdropHome createState() => _BackdropHome();
 }
 
@@ -20,9 +24,13 @@ class _BackdropHome extends State<BackdropHome>{
       elevation: 20.0,      
     );
   }
+  @override
+  void initState(){
+    super.initState();
+  }
 
   List<Widget> _pages = [HomePage(),About(),DirectorMsg(),AboutDev()];
-  List<String> _title = ["Home", "About", "Director's Message", "About Development"];
+  List<String> _title = ["Home","About", "Director's Message", "About Development",];
   int current = 0;
   @override
   Widget build(context){
@@ -54,6 +62,11 @@ class _BackdropHome extends State<BackdropHome>{
             ],
         onTap: (value) => {setState(() => current = value )},
       ),
+          ListTile(
+            title: Text("Logout",style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
+            leading: Icon(Icons.exit_to_app),
+            onTap: ()async {await auth.signOut();},
+          ),
           Padding(
             padding:EdgeInsets.only(top:100.0),
           ),

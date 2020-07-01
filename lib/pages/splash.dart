@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:iiit_sonepat_stable/models/users.dart';
 import 'package:iiit_sonepat_stable/pages/backdrop.dart';
 import 'package:iiit_sonepat_stable/pages/homepage.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
+final userRef = Firestore.instance.collection('users');
+User currentUser;
 
 class SplashPage extends StatefulWidget{
   _SplashPage createState() => _SplashPage();
@@ -17,6 +21,14 @@ class _SplashPage extends State<SplashPage>{
   @override
   void initState(){
     super.initState();
+    getUser();
+  }
+
+  getUser() async {
+    String uid = await auth.currentUser().then((value) => value.uid);
+    print(uid);
+    DocumentSnapshot doc = await userRef.document(uid).get();
+    currentUser = User.fromDocument(doc);
   }
 
   String emailValidator(String value) {
@@ -70,7 +82,7 @@ class _SplashPage extends State<SplashPage>{
   //HomePage if user is authenticated
   Widget buildAuthPage(){
     //return HomePage();
-    return BackdropHome();
+    return BackdropHome(user: currentUser,);
   }
 
   //Login Page if unauthenticated
@@ -85,7 +97,7 @@ class _SplashPage extends State<SplashPage>{
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height*0.5,
               ),
-              child:Image.asset('assets/logo.png')
+              child:Image.asset('assets/images/logo.png')
               //child: Image.network("https://upload.wikimedia.org/wikipedia/en/0/05/Indian_Institute_of_Information_Technology%2C_Sonepat_Logo.png")
             ),
             Form(
