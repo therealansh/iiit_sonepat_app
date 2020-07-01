@@ -1,50 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:iiit_sonepat_stable/pages/splash.dart';
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 import 'package:iiit_sonepat_stable/pages/faculty_grid.dart';
 
 class HomePage extends StatelessWidget {
-  AppBar myAppBar() {
-    return AppBar(
-      elevation: 10,
-      backgroundColor: Colors.black87,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(5),
-                child: IconButton(
-                    onPressed: () {},
-                    highlightColor: Color.fromRGBO(247, 200, 42, 1),
-                    splashColor: Color.fromRGBO(247, 200, 42, 1),
-                    icon: Icon(
-                      Icons.menu,
-                      color: Color.fromRGBO(199, 199, 199, 1),
-                    )),
-              ),
-              Text('Home',
-                  style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
-            ],
-          ),
-          IconButton(
-            icon: Icon(Icons.notifications),
-            highlightColor: Color.fromRGBO(247, 200, 42, 1),
-            splashColor: Color.fromRGBO(247, 200, 42, 1),
-            onPressed: ()async {await auth.signOut();},
-          )
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final String uName = "Student Test"; //User Name Goes Here
     return Scaffold(
-      //appBar: myAppBar(),
-      backgroundColor: Color.fromRGBO(34, 36, 38, 1),
+      backgroundColor: Color(0xFF13191B),
       body: Center(
         child: Column(
           children: <Widget>[

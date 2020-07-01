@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/pages/backdrop.dart';
-import 'package:iiit_sonepat_stable/pages/homepage.dart';
-
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 class SplashPage extends StatefulWidget{
@@ -85,7 +83,7 @@ class _SplashPage extends State<SplashPage>{
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height*0.5,
               ),
-              child:Image.asset('assets/logo.png')
+              child:Image.asset('assets/images/logo.png')
               //child: Image.network("https://upload.wikimedia.org/wikipedia/en/0/05/Indian_Institute_of_Information_Technology%2C_Sonepat_Logo.png")
             ),
             Form(

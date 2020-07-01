@@ -5,7 +5,7 @@ import 'package:iiit_sonepat_stable/models/all_prof_info.dart';
 AppBar myAppBar() {
   return AppBar(
     elevation: 10,
-    backgroundColor: Colors.black,
+    backgroundColor: Color.fromRGBO(79, 84, 89, 1),
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
