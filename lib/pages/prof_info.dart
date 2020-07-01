@@ -21,7 +21,7 @@ class ProfInfo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           elevation: 10,
-          backgroundColor: Colors.black,
+          backgroundColor: Color.fromRGBO(79, 84, 89, 1),
               title: Text(
                   short,
                   style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1), fontSize: 20),
