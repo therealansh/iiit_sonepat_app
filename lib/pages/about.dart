@@ -24,7 +24,8 @@ class _About extends State<About> {
                 about,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
-                  color: Color.fromRGBO(250, 250, 250, 1),
+                  // ignore: deprecated_member_use
+                  color: Theme.of(context).textTheme.body1.color,
                   fontSize: 16,
                 ),
               ),

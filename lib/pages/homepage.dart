@@ -10,20 +10,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final String uName = currentUser.name; //User Name Goes Here
     return Scaffold(
-      backgroundColor: Color(0xFF13191B),
+      backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
           children: <Widget>[
             Icon(
               Icons.account_circle,
               size: 150,
-              color: Color.fromRGBO(199, 199, 199, 1),
+              // ignore: deprecated_member_use
+              color: Theme.of(context).textTheme.body1.color,
             ),
             Text(
               uName,
               style: TextStyle(
                 fontSize: 36,
-                color: Color.fromRGBO(199, 199, 199, 1),
+                // ignore: deprecated_member_use
+                color: Theme.of(context).textTheme.body1.color,
               ),
             ),
             Expanded(
