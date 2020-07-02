@@ -24,12 +24,16 @@ class ProfCard extends StatelessWidget {
                           height: 150, width: 150, child: Image.asset(image))),
                 ), //TODO
                 Padding(
+<<<<<<< HEAD
                   padding: const EdgeInsets.only(
                     top: 8,
                     left: 8,
                     right: 8,
                     bottom: 0,
                   ),
+=======
+                  padding: const EdgeInsets.all(8.0),
+>>>>>>> 738cc53c40e276fb4369611050319c2af138550c
                   child: Text(
                     name,
                     textAlign: TextAlign.center,
