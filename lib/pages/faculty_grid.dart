@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/widgets/prof_card.dart';
 import 'package:iiit_sonepat_stable/models/all_prof_info.dart';
 
-AppBar myAppBar() {
+AppBar myAppBar(BuildContext ctx) {
   return AppBar(
     elevation: 10,
     backgroundColor: Color.fromRGBO(79, 84, 89, 1),
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Text('Faculty',
-            style: TextStyle(color: Color.fromRGBO(199, 199, 199, 1))),
+        Text(
+          'Faculty',
+          style: TextStyle(
+            // ignore: deprecated_member_use
+            color: Theme.of(ctx).textTheme.body1.color,
+          ),
+        ),
         IconButton(
           icon: Icon(Icons.search),
           highlightColor: Color.fromRGBO(247, 200, 42, 1),
@@ -26,14 +31,13 @@ class FacultyGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(),
+      appBar: myAppBar(context),
       body: Container(
         color: Theme.of(context).primaryColor,
         child: GridView.count(
           crossAxisCount: 2,
 //          padding: EdgeInsets.all(3.0),
           mainAxisSpacing: 8.0,
-          crossAxisSpacing: 8.0,
           childAspectRatio: 1 / 1.1,
           children: <Widget>[
             Builder(
