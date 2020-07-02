@@ -30,8 +30,6 @@ class ProfCard extends StatelessWidget {
                     right: 8,
                     bottom: 0,
                   ),
-
-                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     name,
                     textAlign: TextAlign.center,
