@@ -31,6 +31,9 @@ class FacultyGrid extends StatelessWidget {
         color: Theme.of(context).primaryColor,
         child: GridView.count(
           crossAxisCount: 2,
+//          padding: EdgeInsets.all(3.0),
+          mainAxisSpacing: 8.0,
+          crossAxisSpacing: 8.0,
           childAspectRatio: 1 / 1.1,
           children: <Widget>[
             Builder(
