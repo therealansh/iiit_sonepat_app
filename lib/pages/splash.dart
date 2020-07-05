@@ -6,7 +6,7 @@ import 'package:iiit_sonepat_stable/pages/backdrop.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 final userRef = Firestore.instance.collection('users');
-User currentUser;
+// User currentUser;
 
 class SplashPage extends StatefulWidget {
   _SplashPage createState() => _SplashPage();
@@ -20,15 +20,15 @@ class _SplashPage extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    getUser();
+    // getUser();
   }
 
-  getUser() async {
-    String uid = await auth.currentUser().then((value) => value.uid);
-    print(uid);
-    DocumentSnapshot doc = await userRef.document(uid).get();
-    currentUser = User.fromDocument(doc);
-  }
+  // getUser() async {
+  //   String uid = await auth.currentUser().then((value) => value.uid);
+  //   print(uid);
+  //   DocumentSnapshot doc = await userRef.document(uid).get();
+  //   currentUser = User.fromDocument(doc);
+  // }
 
   String emailValidator(String value) {
     Pattern pattern =
@@ -99,9 +99,7 @@ class _SplashPage extends State<SplashPage> {
   //HomePage if user is authenticated
   Widget buildAuthPage() {
     //return HomePage();
-    return BackdropHome(
-      user: currentUser,
-    );
+    return BackdropHome();
   }
 
   //Login Page if unauthenticated

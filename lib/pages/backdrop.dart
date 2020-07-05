@@ -11,8 +11,6 @@ import 'package:backdrop/scaffold.dart';
 import 'package:iiit_sonepat_stable/models/users.dart';
 
 class BackdropHome extends StatefulWidget {
-  final User user;
-  BackdropHome({this.user});
   _BackdropHome createState() => _BackdropHome();
 }
 
