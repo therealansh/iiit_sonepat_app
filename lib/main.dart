@@ -1,7 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'pages/splash.dart';
+import 'package:iiit_sonepat_stable/constants/router.dart';
+import 'package:iiit_sonepat_stable/constants/routes.dart';
+import 'package:iiit_sonepat_stable/ui/Auth/SignUp.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -10,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashPage(),
+      onGenerateRoute: Routers.onGenerateRoute,
+      initialRoute: RouteConstant.LOGIN,
       theme: ThemeData(
         primaryColor: Color(0xFF13191B),
         accentColor: Color.fromRGBO(79, 84, 89, 1),

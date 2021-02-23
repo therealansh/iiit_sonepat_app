@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "526716307108",
+    "firebase_url": "https://iiit-sonepat-63fc2.firebaseio.com",
+    "project_id": "iiit-sonepat-63fc2",
+    "storage_bucket": "iiit-sonepat-63fc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526716307108:android:ae1a381fcb97c0c7580831",
+        "android_client_info": {
+          "package_name": "com.therealansh.iiit_sonepat_stable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526716307108-ofl8rhfdkaqlh8ivqnasjo40rp9n6nte.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3vtIviCJJbEMxDqGbxBEbmaPct5O8OlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526716307108-ofl8rhfdkaqlh8ivqnasjo40rp9n6nte.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

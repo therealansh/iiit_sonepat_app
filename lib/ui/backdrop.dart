@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/rendering.dart';
-import 'package:iiit_sonepat_stable/pages/directormsg.dart';
-import 'package:iiit_sonepat_stable/pages/homepage.dart';
+
 import 'package:backdrop/app_bar.dart';
-import 'package:iiit_sonepat_stable/pages/splash.dart';
-import 'dev.dart';
-import 'about.dart';
+
 import 'package:backdrop/scaffold.dart';
-import 'package:iiit_sonepat_stable/models/users.dart';
+import 'package:iiit_sonepat_stable/ui/About/about.dart';
+import 'package:iiit_sonepat_stable/ui/DevPage/dev.dart';
+import 'package:iiit_sonepat_stable/ui/DirectorMsg/directormsg.dart';
+import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
 
 class BackdropHome extends StatefulWidget {
   _BackdropHome createState() => _BackdropHome();
@@ -94,9 +94,7 @@ class _BackdropHome extends State<BackdropHome> {
               ),
             ),
             leading: Icon(Icons.exit_to_app),
-            onTap: () async {
-              await auth.signOut();
-            },
+            onTap: () {},
           ),
           Padding(
             padding: EdgeInsets.only(top: 100.0),

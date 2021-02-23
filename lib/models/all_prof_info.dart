@@ -1,4 +1,4 @@
-import 'package:iiit_sonepat_stable/pages/prof_info.dart';
+import 'package:iiit_sonepat_stable/ui/FacultyPage/prof_info.dart';
 
 ProfInfo diddiK() {
   return ProfInfo(
