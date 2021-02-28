@@ -15,7 +15,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF13191b),
+      backgroundColor: Color.fromRGBO(52, 59, 69, 1),
       body: Container(
         child: ListView(
           children: <Widget>[
@@ -41,17 +41,23 @@ class _SignInState extends State<SignIn> {
                       decoration: InputDecoration(
                           //labelText: "E-Mail",
                           hintText: "student@iiitsonepat.com",
-                          prefixIcon: Icon(Icons.email),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                          hintStyle: TextStyle(
+                              fontSize: 15.0,
+                              color: Color.fromRGBO(205, 204, 202, 0.4)),
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Color.fromRGBO(205, 204, 202, 1),
                           ),
-                          fillColor: Color(0xFF2E313D),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          fillColor: Color.fromRGBO(52, 59, 69, 1),
                           filled: true),
                       style: TextStyle(
-                        backgroundColor: Color(0xFF2E313D),
+                        backgroundColor: Color.fromRGBO(52, 59, 69, 1),
                         // ignore: deprecated_member_use
                         color: Theme.of(context).textTheme.body2.color,
-                        decorationColor: Color(0xFF2e313d),
+                        decorationColor: Color.fromRGBO(205, 204, 202, 1),
                       ),
                     ),
                   ),
@@ -65,13 +71,19 @@ class _SignInState extends State<SignIn> {
                       decoration: InputDecoration(
                           //labelText: "Password",
                           hintText: "Password",
-                          prefixIcon: Icon(Icons.arrow_forward_ios),
+                          hintStyle: TextStyle(
+                              fontSize: 15.0,
+                              color: Color.fromRGBO(205, 204, 202, 0.4)),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Color.fromRGBO(205, 204, 202, 1),
+                          ),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0)),
-                          fillColor: Color(0xFF2e313d),
+                              borderRadius: BorderRadius.circular(20.0)),
+                          fillColor: Color.fromRGBO(52, 59, 69, 1),
                           filled: true),
                       style: TextStyle(
-                        backgroundColor: Color(0xFF2E313D),
+                        backgroundColor: Color.fromRGBO(52, 59, 69, 1),
                         // ignore: deprecated_member_use
                         color: Theme.of(context).textTheme.body2.color,
                         decorationColor: Color(0xFF2e313d),
@@ -81,23 +93,30 @@ class _SignInState extends State<SignIn> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 15,
+            ),
             Padding(
               padding: EdgeInsets.fromLTRB(75, 20, 75, 0),
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, RouteConstant.DASHBOARD);
-                  if (_loginKey.currentState.validate()) {
-                    print("success");
-                  }
-                },
-                child: Text("Login",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    )),
-                color: Color(0xFFf7c82a),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0)),
+              child: ButtonTheme(
+                minWidth: 20,
+                height: 45,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, RouteConstant.DASHBOARD);
+                    if (_loginKey.currentState.validate()) {
+                      print("success");
+                    }
+                  },
+                  child: Text("Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      )),
+                  color: Color(0xFFf7c82a),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0)),
+                ),
               ),
             ),
           ],
