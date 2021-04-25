@@ -9,6 +9,8 @@ import 'package:iiit_sonepat_stable/ui/About/about.dart';
 import 'package:iiit_sonepat_stable/ui/DevPage/dev.dart';
 import 'package:iiit_sonepat_stable/ui/DirectorMsg/directormsg.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
+import 'package:iiit_sonepat_stable/ui/Auth/SignUp.dart';
+import 'package:iiit_sonepat_stable/constants/routes.dart';
 import 'package:iiit_sonepat_stable/ui/Meeting/meet.dart';
 
 class BackdropHome extends StatefulWidget {
@@ -105,7 +107,7 @@ class _BackdropHome extends State<BackdropHome> {
               ),
             ),
             leading: Icon(Icons.exit_to_app),
-            onTap: () {},
+            onTap: () =>{Navigator.pop(context)},
           ),
 
           Padding(

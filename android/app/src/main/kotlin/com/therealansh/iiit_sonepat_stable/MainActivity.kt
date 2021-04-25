@@ -21,11 +21,22 @@ import org.jitsi.meet.sdk.*
 import timber.log.Timber
 import java.net.MalformedURLException
 import java.net.URL
+import android.widget.Toast
+import android.R.attr.name
+import io.flutter.plugin.common.MethodCall
+import io.flutter.plugin.common.MethodChannel.MethodCallHandler
+import io.flutter.plugin.common.MethodChannel.Result
+import io.flutter.plugins.GeneratedPluginRegistrant
 
+/* Jitsi conveniently provides a pre-build SDK artifacts/binaries in its Maven repository */
 
 class MainActivity: FlutterActivity() {
 
-    private val CHANNEL = "samples.flutter.dev/meet" //for Server Side of Kotlin platform
+
+    /*The host listens on the platform channel, and receives the message. It then calls into any number of platform-specific
+      APIs—using the native programming language—and sends a response back to the client, the Flutter portion of the app.*/
+
+    private val CHANNEL = "samples.flutter.dev/meet"
 
     private val broadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -63,34 +74,56 @@ class MainActivity: FlutterActivity() {
         super.onDestroy()
     }
 
-    var usertext:String?=""//For storing UserName
+    var usertext:String?=""//For storing UserName from client side
 
+    //On the platform side, MethodChannel on Android (MethodChannelAndroid) and FlutterMethodChannel on iOS (MethodChanneliOS) enable receiving method calls and sending back a result.
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
-
-            if(call.method == "Meeting started")
-                usertext=call.argument<String>("text")
-            onButtonClick(usertext)
+            usertext = call.argument<String>("text")
+            if (call.method == "Meeting started") {
+                onButtonClick(call,result,usertext)
+            }
+            else
+            {
+                result.notImplemented()
+            }
 
         }
     }
 
-    fun onButtonClick(text:String?) {
-        if (text!!.length > 0) {
-            // Build options object for joining the conference. The SDK will merge the default
-            // one we set earlier and this one when joining.
-            val options = JitsiMeetConferenceOptions.Builder()
-                    .setRoom(text)
-                    // Settings for audio and video
-                    .setAudioMuted(true)
-                    .setVideoMuted(true)
-                    .build()
-            // Launch the new activity with the given options. The launch() method takes care
-            // of creating the required Intent and passing the options.
-            JitsiMeetActivity.launch(this, options)
+
+    fun onButtonClick(call:MethodCall,result:Result,text: String?) {
+
+        try{
+            if (text!!.length > 0) {
+                // Build options object for joining the conference. The SDK will merge the default
+                // one we set earlier and this one when joining.
+                val options = JitsiMeetConferenceOptions.Builder()
+                        .setRoom(text)
+                        // Settings for audio and video
+                        .setAudioMuted(true)
+                        .setVideoMuted(true)
+                        .build()
+                // Launch the new activity with the given options. The launch() method takes care
+                // of creating the required Intent and passing the options.
+
+                JitsiMeetActivity.launch(this, options)
+                result.success("Joined")                    //Invoke when Text is entered
+
+
+            }
+            else
+            {
+                result.success("Not Joined:Enter text")    //Invoke when Text is not entered
+            }
         }
-    }
+        catch (e:java.lang.Exception)
+        {
+            result.error("UNAVAILABLE", "Error in Joining Meeting ", null)
+        }
+
+        }
 
     private fun registerForBroadcastMessages() {
         val intentFilter = IntentFilter()

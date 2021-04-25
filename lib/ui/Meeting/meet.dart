@@ -15,12 +15,32 @@ class _Meeting extends State<Meeting> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
   final myController = TextEditingController();
+
+  /*Custom Platform Specific Code*/
+
+  /*The Flutter portion of the app sends messages to its host,
+   the iOS or Android portion of the app, over a platform channel.*/
+
+  //On Client side(Flutter side) MethodChannel enables sending messages that correspond to method calls
   static const platform = const MethodChannel('samples.flutter.dev/meet');
+  String _meetingStatus = 'Meeting Not Joined';
 
   Future<void> _getLevel(text) async {
-    platform.invokeMethod('Meeting started',{"text":text});
+    String meetingStatus;
+    try {
+      final String status=await  platform.invokeMethod('Meeting started', {"text": text});
+      meetingStatus = 'Meeting Status : $status';
+    } on PlatformException catch (e) {
+      meetingStatus = "'${e.message}'";
+    }
+
+    setState(() {
+      _meetingStatus = meetingStatus;
+
+    });
   }
 
+  /*To Read more about Custom Platform Specific Code visit:https://flutter.dev/docs/development/platform-integration/platform-channels*/
 
   final GlobalKey<FormState> join = GlobalKey<FormState>();
 
@@ -84,7 +104,22 @@ class _Meeting extends State<Meeting> {
                 minWidth: 20,
                 height: 45,
                 child: RaisedButton(
-                  onPressed: () =>_getLevel(myController.text),
+                  onPressed: () {_getLevel(myController.text);
+                 return showDialog(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                  title: Text("Alert!"),
+                  content: Text(_meetingStatus),
+                  actions: <Widget>[
+                   FlatButton(
+                     onPressed: () {
+                     Navigator.of(ctx).pop();
+                     },
+                   child: Text("Okay"),
+                    ),
+                  ],
+                  ),
+                  );},
                   child: Text("Join",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
