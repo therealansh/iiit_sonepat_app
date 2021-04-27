@@ -11,6 +11,9 @@ import 'package:iiit_sonepat_stable/ui/Auth/SignUp.dart';
 import 'package:iiit_sonepat_stable/ui/DevPage/dev.dart';
 import 'package:iiit_sonepat_stable/ui/DirectorMsg/directormsg.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
+import 'package:iiit_sonepat_stable/ui/Auth/SignUp.dart';
+import 'package:iiit_sonepat_stable/constants/routes.dart';
+import 'package:iiit_sonepat_stable/ui/Meeting/meet.dart';
 
 class BackdropHome extends StatefulWidget {
   _BackdropHome createState() => _BackdropHome();
@@ -30,9 +33,10 @@ class _BackdropHome extends State<BackdropHome> {
     super.initState();
   }
 
-  List<Widget> _pages = [HomePage(), About(), DirectorMsg(), AboutDev()];
+  List<Widget> _pages = [HomePage(), Meeting(),About(), DirectorMsg(), AboutDev()];
   List<String> _title = [
     "Home",
+    "Class",
     "About",
     "Director's Message",
     "About Development",
@@ -56,6 +60,15 @@ class _BackdropHome extends State<BackdropHome> {
                       color: Theme.of(context).textTheme.body1.color),
                 ),
                 leading: Icon(Icons.home),
+              ),
+              ListTile(
+                title: Text(
+                  "Class",
+                  style: TextStyle(
+                    // ignore: deprecated_member_use
+                      color: Theme.of(context).textTheme.body1.color),
+                ),
+                leading: Icon(Icons.class_),
               ),
               ListTile(
                 title: Text(
@@ -96,8 +109,10 @@ class _BackdropHome extends State<BackdropHome> {
               ),
             ),
             leading: Icon(Icons.exit_to_app),
-            onTap: () => {Navigator.pop(context)},
+            onTap: () =>{Navigator.pop(context)},
+
           ),
+
           Padding(
             padding: EdgeInsets.only(top: 100.0),
           ),
