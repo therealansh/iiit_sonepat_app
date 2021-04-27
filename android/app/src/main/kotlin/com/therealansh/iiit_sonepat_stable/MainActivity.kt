@@ -21,8 +21,6 @@ import org.jitsi.meet.sdk.*
 import timber.log.Timber
 import java.net.MalformedURLException
 import java.net.URL
-import android.widget.Toast
-import android.R.attr.name
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
@@ -142,7 +140,7 @@ class MainActivity: FlutterActivity() {
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, intentFilter)
     }
 
-    // Example for handling different JitsiMeetSDK events
+    // For handling different JitsiMeetSDK events
     private fun onBroadcastReceived(intent: Intent?) {
         if (intent != null) {
             val event = BroadcastEvent(intent)
@@ -153,7 +151,7 @@ class MainActivity: FlutterActivity() {
         }
     }
 
-    // Example for sending actions to JitsiMeetSDK
+    // For sending actions to JitsiMeetSDK
     private fun hangUp() {
         val hangupBroadcastIntent: Intent = BroadcastIntentHelper.buildHangUpIntent()
         LocalBroadcastManager.getInstance(org.webrtc.ContextUtils.getApplicationContext()).sendBroadcast(hangupBroadcastIntent)
