@@ -5,7 +5,9 @@ import 'package:flutter/rendering.dart';
 import 'package:backdrop/app_bar.dart';
 
 import 'package:backdrop/scaffold.dart';
+import 'package:iiit_sonepat_stable/constants/routes.dart';
 import 'package:iiit_sonepat_stable/ui/About/about.dart';
+import 'package:iiit_sonepat_stable/ui/Auth/SignUp.dart';
 import 'package:iiit_sonepat_stable/ui/DevPage/dev.dart';
 import 'package:iiit_sonepat_stable/ui/DirectorMsg/directormsg.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
@@ -108,6 +110,7 @@ class _BackdropHome extends State<BackdropHome> {
             ),
             leading: Icon(Icons.exit_to_app),
             onTap: () =>{Navigator.pop(context)},
+
           ),
 
           Padding(
