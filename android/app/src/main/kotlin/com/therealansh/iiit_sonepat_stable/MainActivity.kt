@@ -20,8 +20,6 @@ import org.jitsi.meet.sdk.*
 import timber.log.Timber
 import java.net.MalformedURLException
 import java.net.URL
-import android.widget.Toast
-import android.R.attr.name
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
@@ -70,7 +68,6 @@ class MainActivity: FlutterActivity() {
                 //.setFeatureFlag("toolbox.enabled", false)
                 //.setFeatureFlag("filmstrip.enabled", false)
                 .setFeatureFlag("kick-out.enabled", false)
-                .setFeatureFlag("pip.enabled", false)
                 .setWelcomePageEnabled(false)
                 .build()
         }
@@ -83,7 +80,6 @@ class MainActivity: FlutterActivity() {
                 //.setFeatureFlag("toolbox.enabled", false)
                 //.setFeatureFlag("filmstrip.enabled", false)
                 .setWelcomePageEnabled(false)
-                .setFeatureFlag("pip.enabled", false)
                 .build()
 
         }
@@ -93,6 +89,7 @@ class MainActivity: FlutterActivity() {
     }
 
     override fun onDestroy() {
+
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver)
         super.onDestroy()
     }
