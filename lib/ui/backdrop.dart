@@ -33,10 +33,9 @@ class _BackdropHome extends State<BackdropHome> {
     super.initState();
   }
 
-  List<Widget> _pages = [HomePage(), Meeting(),About(), DirectorMsg(), AboutDev()];
+  List<Widget> _pages = [HomePage(), About(), DirectorMsg(), AboutDev()];
   List<String> _title = [
     "Home",
-    "Class",
     "About",
     "Director's Message",
     "About Development",
@@ -112,7 +111,6 @@ class _BackdropHome extends State<BackdropHome> {
             onTap: () =>{Navigator.pop(context)},
 
           ),
-
           Padding(
             padding: EdgeInsets.only(top: 100.0),
           ),

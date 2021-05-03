@@ -1,6 +1,5 @@
 package com.therealansh.iiit_sonepat_stable
 
-
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -21,10 +20,14 @@ import org.jitsi.meet.sdk.*
 import timber.log.Timber
 import java.net.MalformedURLException
 import java.net.URL
+import android.widget.Toast
+import android.R.attr.name
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugins.GeneratedPluginRegistrant
+
+
 
 /* Jitsi conveniently provides a pre-build SDK artifacts/binaries in its Maven repository */
 
@@ -67,6 +70,7 @@ class MainActivity: FlutterActivity() {
                 //.setFeatureFlag("toolbox.enabled", false)
                 //.setFeatureFlag("filmstrip.enabled", false)
                 .setFeatureFlag("kick-out.enabled", false)
+                .setFeatureFlag("pip.enabled", false)
                 .setWelcomePageEnabled(false)
                 .build()
         }
@@ -79,6 +83,7 @@ class MainActivity: FlutterActivity() {
                 //.setFeatureFlag("toolbox.enabled", false)
                 //.setFeatureFlag("filmstrip.enabled", false)
                 .setWelcomePageEnabled(false)
+                .setFeatureFlag("pip.enabled", false)
                 .build()
 
         }
@@ -113,7 +118,7 @@ class MainActivity: FlutterActivity() {
     fun onButtonClick(call:MethodCall,result:Result,text: String?) {
         try{
             if (text!!.length > 0) {
-                Participant(usertext.toString().contains("https://meet.jit.si"))
+                Participant(text.toString().contains("https://meet.jit.si"))
                 // Build options object for joining the conference. The SDK will merge the default
                 // one we set earlier and this one when joining.
                 val options = JitsiMeetConferenceOptions.Builder()
@@ -176,3 +181,4 @@ class MainActivity: FlutterActivity() {
         LocalBroadcastManager.getInstance(org.webrtc.ContextUtils.getApplicationContext()).sendBroadcast(hangupBroadcastIntent)
     }
 }
+
