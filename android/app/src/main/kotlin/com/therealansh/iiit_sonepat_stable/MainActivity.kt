@@ -25,8 +25,6 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugins.GeneratedPluginRegistrant
 
-
-
 /* Jitsi conveniently provides a pre-build SDK artifacts/binaries in its Maven repository */
 
 class MainActivity: FlutterActivity() {
@@ -95,6 +93,7 @@ class MainActivity: FlutterActivity() {
     }
 
 
+
     //On the platform side, MethodChannel on Android (MethodChannelAndroid) and FlutterMethodChannel on iOS (MethodChanneliOS) enable receiving method calls and sending back a result.
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -116,6 +115,7 @@ class MainActivity: FlutterActivity() {
         try{
             if (text!!.length > 0) {
                 Participant(text.toString().contains("https://meet.jit.si"))
+
                 // Build options object for joining the conference. The SDK will merge the default
                 // one we set earlier and this one when joining.
                 val options = JitsiMeetConferenceOptions.Builder()
