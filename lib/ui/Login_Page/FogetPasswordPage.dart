@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:iiit_sonepat_stable/Login_Page/Second_Page.dart';
-import 'package:iiit_sonepat_stable/Login_Page/Third_Page.dart';
+import 'package:iiit_sonepat_stable/ui/Login_Page/Landing.dart';
+import 'package:iiit_sonepat_stable/ui/Login_Page/Auth.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
 // import 'package:iiit_skeleton/Login_Page/Body.dart';
 // import 'package:iiit_skeleton/screens/home_screen.dart';
 // import 'dart:ui' as ui;
-import 'TextField.dart';
+import 'AuthTextField.dart';
 
-class Forget_Password extends StatelessWidget {
+class ForgetPassword extends StatefulWidget {
   @override
   final TextEditingController controllerRoll;
   final TextEditingController controllerPhone;
   final TextEditingController controllerName;
 
-  Forget_Password(
+  ForgetPassword(
       this.controllerRoll, this.controllerPhone, this.controllerName);
 
+  @override
+  _ForgetPasswordState createState() => _ForgetPasswordState();
+}
+
+class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.orangeAccent,
@@ -34,7 +39,7 @@ class Forget_Password extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   TextMain(
-                    controller: controllerRoll,
+                    controller: widget.controllerRoll,
                     obscure: false,
                     color: Colors.black,
                     fw: FontWeight.bold,
@@ -49,7 +54,7 @@ class Forget_Password extends StatelessWidget {
                     height: 9.0,
                   ),
                   TextMain(
-                    controller: controllerName,
+                    controller: widget.controllerName,
                     obscure: false,
                     color: Colors.black,
                     fw: FontWeight.bold,
@@ -82,8 +87,8 @@ class Forget_Password extends StatelessWidget {
                             borderRadius: new BorderRadius.circular(30.0),
                           ),
                           onPressed: () {
-                            if (controllerRoll.text.isEmpty ||
-                                controllerName.text.isEmpty) {
+                            if (widget.controllerRoll.text.isEmpty ||
+                                widget.controllerName.text.isEmpty) {
                               showDialog(
                                 // barrierColor: Colors.white,
                                 context: context,
@@ -195,7 +200,7 @@ class Forget_Password extends StatelessWidget {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => second(),
+                                            builder: (context) => Landing(),
                                           ),
                                         );
                                       },
@@ -255,7 +260,7 @@ class Forget_Password extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   TextMain(
-                    controller: controllerPhone,
+                    controller: widget.controllerPhone,
                     obscure: false,
                     color: Colors.black,
                     fw: FontWeight.bold,
@@ -288,7 +293,7 @@ class Forget_Password extends StatelessWidget {
                             borderRadius: new BorderRadius.circular(30.0),
                           ),
                           onPressed: () {
-                            if (controllerPhone.text.isEmpty) {
+                            if (widget.controllerPhone.text.isEmpty) {
                               showDialog(
                                 // barrierColor: Colors.white,
                                 context: context,
@@ -400,7 +405,7 @@ class Forget_Password extends StatelessWidget {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => second(),
+                                            builder: (context) => Landing(),
                                           ),
                                         );
                                       },
@@ -442,23 +447,4 @@ class Forget_Password extends StatelessWidget {
       ),
     );
   }
-
-  // Widget generateBlurredImage() {
-  //   return new Container(
-  //     decoration: new BoxDecoration(
-  //       image: new DecorationImage(
-  //         image: new AssetImage('images/Login_Page/back-light.jpg'),
-  //         fit: BoxFit.cover,
-  //       ),
-  //     ),
-  //     //I blurred the parent container to blur background image, you can get rid of this part
-  //     child: new BackdropFilter(
-  //       filter: new ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-  //       child: new Container(
-  //         //you can change opacity with color here(I used black) for background.
-  //         decoration: new BoxDecoration(color: Colors.black.withOpacity(0.0)),
-  //       ),
-  //     ),
-  //   );
-  // }
 }

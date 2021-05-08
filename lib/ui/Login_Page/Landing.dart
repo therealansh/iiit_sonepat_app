@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:iiit_sonepat_stable/Login_Page/Third_Page.dart';
+import 'package:iiit_sonepat_stable/ui/Login_Page/Auth.dart';
 
-class second extends StatelessWidget {
+class Landing extends StatefulWidget {
+  @override
+  _LandingState createState() => _LandingState();
+}
+
+class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +77,7 @@ class second extends StatelessWidget {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => third(),
+                                          builder: (context) => Auth(),
                                         ),
                                       );
                                     }),

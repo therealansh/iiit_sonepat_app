@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:iiit_sonepat_stable/Login_Page/Second_Page.dart';
+import 'package:iiit_sonepat_stable/ui/Login_Page/Landing.dart';
 import 'package:iiit_sonepat_stable/main.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
 
+import 'AuthTextField.dart';
+import 'FogetPasswordPage.dart';
 
-import 'TextField.dart';
-import 'forget_password.dart';
+class Auth extends StatefulWidget {
+  @override
+  _AuthState createState() => _AuthState();
+}
 
-class third extends StatelessWidget {
+class _AuthState extends State<Auth> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   final TextEditingController emailController = new TextEditingController();
+
   final TextEditingController passwordController = new TextEditingController();
+
   final TextEditingController phoneController = new TextEditingController();
+
   final TextEditingController nameController = new TextEditingController();
+
   final TextEditingController rollController = new TextEditingController();
 
   @override
@@ -28,18 +37,21 @@ class third extends StatelessWidget {
             //     children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 40.0),
-              child: FlatButton(
+              child: TextButton(
+                style: ButtonStyle(
+                  elevation: MaterialStateProperty.all(0.0),
+                  foregroundColor: MaterialStateProperty.all(Colors.black12),
+                ),
                 child: Icon(
                   Icons.arrow_back,
                   color: Colors.black87,
                   size: 35,
                 ),
-                color: Color(0xFFFFB900),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => second(),
+                      builder: (context) => Landing(),
                     ),
                   );
                 },
@@ -142,7 +154,7 @@ class third extends StatelessWidget {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  Forget_Password(
+                                                  ForgetPassword(
                                                 rollController,
                                                 phoneController,
                                                 nameController,
@@ -167,12 +179,10 @@ class third extends StatelessWidget {
                                           ),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                new BorderRadius.circular(
-                                                    30.0),
+                                                new BorderRadius.circular(30.0),
                                           ),
                                           onPressed: () {
-                                            if (emailController
-                                                    .text.isEmpty ||
+                                            if (emailController.text.isEmpty ||
                                                 passwordController
                                                     .text.isEmpty) {
                                               showDialog(
@@ -190,18 +200,15 @@ class third extends StatelessWidget {
                                                     // TextEditingController.
                                                     content: Padding(
                                                       padding:
-                                                          const EdgeInsets
-                                                                  .only(
+                                                          const EdgeInsets.only(
                                                               left: 45.0),
                                                       child: Text(
                                                         "Fill the Required Fields",
                                                         style: TextStyle(
                                                             fontSize: 15.0,
                                                             fontWeight:
-                                                                FontWeight
-                                                                    .w900,
-                                                            color:
-                                                                Colors.black,
+                                                                FontWeight.w900,
+                                                            color: Colors.black,
                                                             fontFamily:
                                                                 "Ubuntu"),
                                                       ),
@@ -223,8 +230,7 @@ class third extends StatelessWidget {
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .black,
-                                                                fontSize:
-                                                                    15.0,
+                                                                fontSize: 15.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold),
@@ -254,9 +260,8 @@ class third extends StatelessWidget {
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      HomePage()
-                                                ),
+                                                    builder: (context) =>
+                                                        HomePage()),
                                               );
                                           }),
                                     ),

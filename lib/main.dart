@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:iiit_sonepat_stable/constants/routes.dart';
 import 'package:iiit_sonepat_stable/ui/Auth/SignUp.dart';
-import 'Login_Page/Second_Page.dart';
-import 'Login_Page/custom_splash.dart';
-
+import 'package:iiit_sonepat_stable/ui/Login_Page/Landing.dart';
+import 'package:iiit_sonepat_stable/ui/Login_Page/SplashScreen.dart';
 
 void main() async {
   Function duringSplash = () {
@@ -19,24 +18,25 @@ void main() async {
       return 2;
   };
 
-  Map<int, Widget> op = {1: second(), 2: second()};
+  Map<int, Widget> op = {1: Landing(), 2: Landing()};
   // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
-  runApp(MaterialApp(
-    home: CustomSplash(
-      imagePath: 'assets/images/IIIT Sonepat Logo.png',
-      backGroundColor: Colors.white,
-      // backGroundColor: Color(0xfffc6042),
-      animationEffect: 'zoom-in',
-      logoSize: 200,
-      home: second(),
-      customFunction: duringSplash,
-      duration: 4000,
-      type: CustomSplashType.StaticDuration,
-      outputAndHome: op,
+  runApp(
+    MaterialApp(
+      home: CustomSplash(
+        imagePath: 'assets/images/IIIT Sonepat Logo.png',
+        backGroundColor: Colors.white,
+        // backGroundColor: Color(0xfffc6042),
+        animationEffect: 'zoom-in',
+        logoSize: 200,
+        home: Landing(),
+        customFunction: duringSplash,
+        duration: 4000,
+        type: CustomSplashType.StaticDuration,
+        outputAndHome: op,
+      ),
     ),
-  ),);
-
+  );
 }
 
 final ThemeData _appTheme = _buildAppTheme();
@@ -62,4 +62,3 @@ TextTheme text(TextTheme base) {
     ),
   );
 }
-

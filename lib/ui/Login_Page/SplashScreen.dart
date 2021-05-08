@@ -82,7 +82,12 @@ class _CustomSplashState extends State<CustomSplash>
               child: Center(
                   child: SizedBox(
                 height: _logoSize,
-                child: Image.asset(_imagePath, width: 250, height: 250,fit: BoxFit.cover,),
+                child: Image.asset(
+                  _imagePath,
+                  width: 250,
+                  height: 250,
+                  fit: BoxFit.cover,
+                ),
               )));
         }
       case 'zoom-in':
