@@ -18,23 +18,24 @@ class _LandingState extends State<Landing> {
             Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top:80.0),
+                  padding: const EdgeInsets.only(top: 80.0),
                   child: Center(
                     child: Image.asset(
                       "assets/images/logo.png",
-                      width: 250,height: 250,
+                      width: 250,
+                      height: 250,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2.3,
+                  height: MediaQuery.of(context).size.height / 2.05,
                   margin: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height / 2),
                   child: Card(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(35.0),
                     ),
                     color: Color(0xFFFFB900),
                     elevation: 10,

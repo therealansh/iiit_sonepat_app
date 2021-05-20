@@ -6,12 +6,16 @@ import 'package:iiit_sonepat_stable/ui/Auth/SignUp.dart';
 import 'package:iiit_sonepat_stable/ui/Login_Page/Landing.dart';
 import 'package:iiit_sonepat_stable/ui/Login_Page/SplashScreen.dart';
 
-void main() async {
+class MyApp extends StatelessWidget {
   Map<int, Widget> op = {1: Landing(), 2: Landing()};
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
-  runApp(
-    MaterialApp(
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       home: CustomSplash(
         imagePath: 'assets/images/IIIT Sonepat Logo.png',
         backGroundColor: Colors.white,
@@ -22,7 +26,15 @@ void main() async {
         type: CustomSplashType.StaticDuration,
         outputAndHome: op,
       ),
-    ),
+    );
+  }
+}
+
+void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+  runApp(
+    MyApp(),
   );
 }
 

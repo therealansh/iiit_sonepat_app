@@ -92,7 +92,7 @@ class _AuthState extends State<Auth> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Column(
-                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+
 
                           children: <Widget>[
                             Container(
