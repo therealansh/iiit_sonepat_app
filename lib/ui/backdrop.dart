@@ -33,7 +33,9 @@ class _BackdropHome extends State<BackdropHome> {
     super.initState();
   }
 
+
   List<Widget> _pages = [HomePage(), Meeting(),About(), DirectorMsg(), AboutDev()];
+
   List<String> _title = [
     "Home",
     "Class",
@@ -109,7 +111,8 @@ class _BackdropHome extends State<BackdropHome> {
               ),
             ),
             leading: Icon(Icons.exit_to_app),
-            onTap: () =>{Navigator.pop(context)},
+
+            onTap: () => {Navigator.pop(context)},
 
           ),
 

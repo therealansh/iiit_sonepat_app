@@ -1,6 +1,5 @@
 package com.therealansh.iiit_sonepat_stable
 
-
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -21,8 +20,6 @@ import org.jitsi.meet.sdk.*
 import timber.log.Timber
 import java.net.MalformedURLException
 import java.net.URL
-import android.widget.Toast
-import android.R.attr.name
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
@@ -37,7 +34,7 @@ class MainActivity: FlutterActivity() {
       APIs—using the native programming language—and sends a response back to the client, the Flutter portion of the app.*/
 
     private val CHANNEL = "samples.flutter.dev/meet"
-
+    var usertext:String?=""//For storing UserName from client side
     private val broadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             onBroadcastReceived(intent)
@@ -46,7 +43,12 @@ class MainActivity: FlutterActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
 
+
+    //To verify the Participant of the meeting
+    private fun Participant(verify:Boolean)
+    {
         // Initialize default options for Jitsi Meet conferences.
         val serverURL: URL = try {
             // When using JaaS, replace "https://meet.jit.si" with the proper serverURL
@@ -55,7 +57,20 @@ class MainActivity: FlutterActivity() {
             e.printStackTrace()
             throw RuntimeException("Invalid server URL!")
         }
-        val defaultOptions = JitsiMeetConferenceOptions.Builder()
+        val defaultOptions=if(verify) {
+            JitsiMeetConferenceOptions.Builder()
+                .setServerURL(serverURL)
+                // When using JaaS, set the obtained JWT here
+                //.setToken("MyJWT")
+                // Different features flags can be set
+                //.setFeatureFlag("toolbox.enabled", false)
+                //.setFeatureFlag("filmstrip.enabled", false)
+                .setFeatureFlag("kick-out.enabled", false)
+                .setWelcomePageEnabled(false)
+                .build()
+        }
+        else{
+            JitsiMeetConferenceOptions.Builder()
                 .setServerURL(serverURL)
                 // When using JaaS, set the obtained JWT here
                 //.setToken("MyJWT")
@@ -64,17 +79,20 @@ class MainActivity: FlutterActivity() {
                 //.setFeatureFlag("filmstrip.enabled", false)
                 .setWelcomePageEnabled(false)
                 .build()
-        JitsiMeet.setDefaultConferenceOptions(defaultOptions)
 
+        }
+
+        JitsiMeet.setDefaultConferenceOptions(defaultOptions)
         registerForBroadcastMessages()
     }
 
     override fun onDestroy() {
+
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver)
         super.onDestroy()
     }
 
-    var usertext:String?=""//For storing UserName from client side
+
 
     //On the platform side, MethodChannel on Android (MethodChannelAndroid) and FlutterMethodChannel on iOS (MethodChanneliOS) enable receiving method calls and sending back a result.
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
@@ -94,9 +112,10 @@ class MainActivity: FlutterActivity() {
 
 
     fun onButtonClick(call:MethodCall,result:Result,text: String?) {
-
         try{
             if (text!!.length > 0) {
+                Participant(text.toString().contains("https://meet.jit.si"))
+
                 // Build options object for joining the conference. The SDK will merge the default
                 // one we set earlier and this one when joining.
                 val options = JitsiMeetConferenceOptions.Builder()
@@ -159,3 +178,4 @@ class MainActivity: FlutterActivity() {
         LocalBroadcastManager.getInstance(org.webrtc.ContextUtils.getApplicationContext()).sendBroadcast(hangupBroadcastIntent)
     }
 }
+
