@@ -33,7 +33,9 @@ class _BackdropHome extends State<BackdropHome> {
     super.initState();
   }
 
+
   List<Widget> _pages = [HomePage(), Meeting(),About(), DirectorMsg(), AboutDev()];
+
   List<String> _title = [
     "Home",
     "Class",

@@ -1,5 +1,12 @@
 package com.therealansh.iiit_sonepat_stable
 
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
+import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -107,7 +114,8 @@ class MainActivity: FlutterActivity() {
     fun onButtonClick(call:MethodCall,result:Result,text: String?) {
         try{
             if (text!!.length > 0) {
-                Participant(usertext.toString().contains("https://meet.jit.si"))
+                Participant(text.toString().contains("https://meet.jit.si"))
+
                 // Build options object for joining the conference. The SDK will merge the default
                 // one we set earlier and this one when joining.
                 val options = JitsiMeetConferenceOptions.Builder()
@@ -170,3 +178,4 @@ class MainActivity: FlutterActivity() {
         LocalBroadcastManager.getInstance(org.webrtc.ContextUtils.getApplicationContext()).sendBroadcast(hangupBroadcastIntent)
     }
 }
+
