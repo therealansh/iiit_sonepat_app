@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:iiit_sonepat_stable/ui/AttendancePage/attendance_page.dart';
 import 'package:iiit_sonepat_stable/ui/FacultyPage/faculty_grid.dart';
 
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
@@ -54,6 +55,7 @@ class _HomePage extends State<HomePage> {
                               text: 'My Profile',
                             ),
                             HomeScreenButton(
+                              pageToOpen: AttendancePage(),
                               icon: Icons.art_track,
                               text: 'Attendance',
                             ),
