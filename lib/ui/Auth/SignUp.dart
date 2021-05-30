@@ -103,7 +103,7 @@ class _SignInState extends State<SignIn> {
                 height: 45,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, RouteConstant.DASHBOARD);
+                    Navigator.pushNamed(context, RouteConstant.HOME);
                     if (_loginKey.currentState.validate()) {
                       print("success");
                     }
