@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class AttendancePage extends StatelessWidget {
+  static var now = DateTime.now().toLocal();
   static const int maths_att = 7, maths_total = 10;
   static const int dsa_att = 8, dsa_total = 10;
   static const int comm_att = 5, comm_total = 10;
@@ -42,6 +44,7 @@ class AttendancePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(now.weekday);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -57,7 +60,7 @@ class AttendancePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Friday',
+                DateFormat('EEEE').format(now),
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 16,
@@ -66,7 +69,7 @@ class AttendancePage extends StatelessWidget {
               ),
               RichText(
                 text: TextSpan(
-                  text: '16',
+                  text: '${DateFormat('d').format(now)}',
                   style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 0.5,
@@ -83,7 +86,7 @@ class AttendancePage extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: ' April 2021',
+                      text: ' ${DateFormat('MMMM y').format(now)}',
                       style: TextStyle(
                         fontWeight: FontWeight.w300,
                         wordSpacing: 1,

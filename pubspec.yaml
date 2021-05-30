@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  intl: ^0.17.0
+  native_pdf_view: ^4.0.1
   percent_indicator: "^2.1.7+2"
   backdrop: ^0.6.0
   cloud_firestore: ^1.0.6
