@@ -26,7 +26,7 @@ class CustomSplash extends StatefulWidget {
       Color backGroundColor = Colors.white,
       String animationEffect = 'fade-in',
       double logoSize = 250.0,
-      Map<dynamic, Widget> outputAndHome}) {
+    }) {
     assert(duration != null);
     assert(home != null);
     assert(imagePath != null);
@@ -36,7 +36,6 @@ class CustomSplash extends StatefulWidget {
     _customFunction = customFunction;
     _imagePath = imagePath;
     _runfor = type;
-    _outputAndHome = outputAndHome;
     _backGroundColor = backGroundColor;
     _animationEffect = animationEffect;
     _logoSize = 250.0;

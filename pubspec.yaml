@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  fluttertoast: ^8.0.7
   percent_indicator: "^2.1.7+2"
   backdrop: ^0.6.0
   cloud_firestore: ^1.0.6
