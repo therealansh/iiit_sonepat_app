@@ -1,129 +1,3 @@
-<<<<<<< HEAD
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:iiit_sonepat_stable/ui/AttendancePage/attendance_page.dart';
-import 'package:iiit_sonepat_stable/ui/FacultyPage/faculty_grid.dart';
-
-import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
-
-import 'package:iiit_sonepat_stable/models/users.dart';
-
-class HomePage extends StatefulWidget {
-  _HomePage createState() => _HomePage();
-}
-
-class _HomePage extends State<HomePage> {
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // final String uName = "name"; //User Name Goes Here
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Icon(
-              Icons.account_circle,
-              size: 150,
-              // ignore: deprecated_member_use
-              color: Theme.of(context).textTheme.body1.color,
-            ),
-            Text(
-              "User Name",
-              style: TextStyle(
-                fontSize: 36,
-                // ignore: deprecated_member_use
-                color: Theme.of(context).textTheme.body1.color,
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: <Widget>[
-                    Center(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            HomeScreenButton(
-                              icon: Icons.account_circle,
-                              text: 'My Profile',
-                            ),
-                            HomeScreenButton(
-                              pageToOpen: AttendancePage(),
-                              icon: Icons.art_track,
-                              text: 'Attendance',
-                            ),
-                            HomeScreenButton(
-                              icon: Icons.local_library,
-                              text: 'Homework',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            HomeScreenButton(
-                              icon: Icons.book,
-                              text: 'Circulars',
-                            ),
-                            HomeScreenButton(
-                              icon: Icons.insert_invitation,
-                              text: 'Time Table',
-                            ),
-                            HomeScreenButton(
-                              icon: Icons.calendar_today,
-                              text: 'Calendar',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            HomeScreenButton(
-                              icon: Icons.perm_media,
-                              text: 'Gallery',
-                            ),
-                            HomeScreenButton(
-                              icon: Icons.people,
-                              text: 'Faculty',
-                              pageToOpen: FacultyGrid(),
-                            ),
-                            HomeScreenButton(
-                              icon: Icons.view_list,
-                              text: 'Results',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-=======
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -403,7 +277,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 20,
                     subjectName: 'Communication Skills',
-                    imagePath: "images/communication_skill.webp",
+                    imagePath: "assets/subjectPageImages/communication_skill.webp",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -418,7 +292,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 19,
                     subjectName: 'Data Structures',
-                    imagePath: "assets/byAditya/dsa.webp",
+                    imagePath: "assets/subjectPageImages/dsa.webp",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -433,7 +307,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 21,
                     subjectName: 'Web Designing',
-                    imagePath: "assets/byAditya/web_design.webp",
+                    imagePath: "assets/subjectPageImages/web_design.webp",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -448,7 +322,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 17,
                     subjectName: 'Mathematics',
-                    imagePath: "assets/byAditya/math.png",
+                    imagePath: "assets/subjectPageImages/maths.png",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -463,7 +337,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 22,
                     subjectName: 'Application Programming',
-                    imagePath: "images/application_dev.jpeg",
+                    imagePath: "assets/subjectPageImages/application_dev.jpeg",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -478,7 +352,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 18,
                     subjectName: 'Digital Electronics',
-                    imagePath: "images/dig_elec.gif",
+                    imagePath: "assets/subjectPageImages/dig_elec.gif",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -497,4 +371,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
->>>>>>> 13908ad639ae5b965b23736db8988159c0e59fb8
