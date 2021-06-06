@@ -22,7 +22,7 @@ class Routers {
       case RouteConstant.FACULTYPAGE:
         return MaterialPageRoute(builder: (_) => FacultyGrid());
       case RouteConstant.HOME:
-        return MaterialPageRoute(builder: (_) => HomePage());
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       case RouteConstant.LOGIN:
         return MaterialPageRoute(builder: (_) => SignIn());
       default:
