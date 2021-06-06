@@ -5,13 +5,13 @@ import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class AttendancePage extends StatelessWidget {
-  static var now = DateTime.now().toLocal();
   static const int maths_att = 7, maths_total = 10;
   static const int dsa_att = 8, dsa_total = 10;
   static const int comm_att = 5, comm_total = 10;
   static const int ap_att = 4, ap_total = 10;
   static const int wd_att = 8, wd_total = 10;
   static const int de_att = 7, de_total = 10;
+  static var now = DateTime.now().toLocal();
   static int total = maths_total+dsa_total+comm_total+ap_total+wd_total+de_total;
   static int attend = maths_att+wd_att+ap_att+comm_att+dsa_att+de_att;
   final String attendanceTextSafe = 'Good Job You Are Safe.......!';
