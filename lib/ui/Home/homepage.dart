@@ -277,7 +277,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 20,
                     subjectName: 'Communication Skills',
-                    imagePath: "images/communication_skill.webp",
+                    imagePath: "assets/subjectPageImages/communication_skill.webp",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -292,7 +292,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 19,
                     subjectName: 'Data Structures',
-                    imagePath: "assets/byAditya/dsa.webp",
+                    imagePath: "assets/subjectPageImages/dsa.webp",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -307,7 +307,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 21,
                     subjectName: 'Web Designing',
-                    imagePath: "assets/byAditya/web_design.webp",
+                    imagePath: "assets/subjectPageImages/web_design.webp",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -322,7 +322,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 17,
                     subjectName: 'Mathematics',
-                    imagePath: "assets/byAditya/math.png",
+                    imagePath: "assets/subjectPageImages/maths.png",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -337,7 +337,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 22,
                     subjectName: 'Application Programming',
-                    imagePath: "images/application_dev.jpeg",
+                    imagePath: "assets/subjectPageImages/application_dev.jpeg",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),
@@ -352,7 +352,7 @@ class _MyAppState extends State<MyApp> {
                   navigateTo: SubjectPage(
                     initialPage: 18,
                     subjectName: 'Digital Electronics',
-                    imagePath: "images/dig_elec.gif",
+                    imagePath: "assets/subjectPageImages/dig_elec.gif",
                     quote:
                         "Maths is the language in which god has written the universe.",
                   ),

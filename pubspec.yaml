@@ -21,12 +21,13 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  intl: ^0.17.0
+  native_pdf_view: any
   fluttertoast: ^8.0.7
   percent_indicator: "^2.1.7+2"
   backdrop: ^0.6.0
   cloud_firestore: ^1.0.6
   flutter_svg: ^0.22.0
-  native_pdf_view: ^4.0.1
   firebase_core: ^1.0.4
   firebase_auth: ^1.1.1
   flutter:
@@ -59,6 +60,11 @@ flutter:
     - assets/images/rajiv.jpg
     - assets/images/class.png
     - assets/byAditya/
+    - assets/subjectPageImages/
+    - assets/subjectPageImages/maths.png
+    - assets/subjectPageImages/web_design.webp
+    - assets/subjectPageImages/
+    - assets/iiit_sonepat_syllabus.pdf
     - assets/images/IIIT Sonepat Logo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
