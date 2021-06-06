@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iiit_sonepat_stable/constants/theme.dart';
 
 class CarouselChild extends StatelessWidget {
   CarouselChild({@required this.address, this.onPress});
@@ -12,7 +13,7 @@ class CarouselChild extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black,
+            color: AppTheme.black,
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(30.0),

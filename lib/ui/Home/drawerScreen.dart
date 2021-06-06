@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:iiit_sonepat_stable/constants/theme.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
 
 class DrawerScreen extends StatefulWidget {
@@ -36,7 +37,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           backgroundImage: AssetImage(
                             'assets/images/logo.png',
                           ),
-                          backgroundColor: Colors.white,
+                          backgroundColor: AppTheme.white,
                           radius: 60,
                         ),
                       ),
@@ -50,7 +51,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         child: Text(
                           'Student Panel',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppTheme.white,
                             fontSize: 23,
                             fontWeight: FontWeight.w500,
                           ),
@@ -66,13 +67,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.info,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       horizontalTitleGap: 6,
                       title: Text(
                         'About',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -88,13 +89,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.assignment_ind_rounded,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       horizontalTitleGap: 6,
                       title: Text(
                         'Attendance',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -110,13 +111,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.work,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       horizontalTitleGap: 6,
                       title: Text(
                         'Faculty',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -132,13 +133,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.call,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       horizontalTitleGap: 6,
                       title: Text(
                         'Meeting',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -154,13 +155,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.article,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       horizontalTitleGap: 6,
                       title: Text(
                         'News',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -176,13 +177,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.camera,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       horizontalTitleGap: 6,
                       title: Text(
                         'Socials',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -198,13 +199,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ListTile(
                       leading: Icon(
                         Icons.star,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       horizontalTitleGap: 6,
                       title: Text(
                         'Rate Us',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -231,20 +232,20 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     children: [
                       Icon(
                         Icons.logout,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                       TextButton(
                         child: Text(
                           'Logout',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppTheme.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           ),
                         ),
                         onPressed: () {
                           showDialog(
-                            barrierColor: Colors.white,
+                            barrierColor: AppTheme.white,
                             context: context,
                             builder: (context) {
                               return AlertDialog(
@@ -255,7 +256,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                                   style: TextStyle(
                                     fontSize: 15.0,
                                     fontWeight: FontWeight.w900,
-                                    color: Colors.black,
+                                    color: AppTheme.black,
                                   ),
                                 ),
 
@@ -278,7 +279,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                                                 content: Text(
                                                     "You have been successfully Logged Out"),
                                                 backgroundColor:
-                                                    Colors.lightGreenAccent,
+                                                    AppTheme.lightGreenAccent,
                                               );
                                               _scaffoldKey.currentState
                                                   .showSnackBar(snackbar);
@@ -334,7 +335,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                                     ],
                                   )
                                 ],
-                                backgroundColor: Colors.white,
+                                backgroundColor: AppTheme.white,
                               );
                             },
                           );

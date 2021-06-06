@@ -27,7 +27,7 @@ class _AuthState extends State<Auth> {
   InputDecoration inputDecor(String hint, IconData prefix, bool obscure, IconData suffix){
     return InputDecoration(
         enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: BorderSide(color: AppTheme.transparent),
                 borderRadius: BorderRadius.all(
             Radius.circular(30.0),
           ),
@@ -45,7 +45,7 @@ class _AuthState extends State<Auth> {
         prefixIcon: Icon(
           prefix,
           size: 25.0,
-          color: Colors.black,
+          color: AppTheme.black,
         ),
 
         suffixIcon:IconButton(
@@ -58,11 +58,11 @@ class _AuthState extends State<Auth> {
           icon: Icon(isObscure&&obscure?
            Icons.visibility_off:suffix,
             size: 25.0,
-            color: Colors.black,
+            color: AppTheme.black,
           ),
         ),
         hintStyle: TextStyle(
-          color: Colors.grey,
+          color: AppTheme.grey,
           fontSize: 12.0,
           fontWeight: FontWeight.w900,
           fontStyle: FontStyle.normal,
@@ -86,7 +86,7 @@ class _AuthState extends State<Auth> {
               child: InkWell(
                         child: Icon(
                     Icons.arrow_back,
-                    color: Colors.black87,
+                    color: AppTheme.black2,
                     size: 35,
                   ),
                   onTap: ()=>Navigator.pop(context),
@@ -106,14 +106,14 @@ class _AuthState extends State<Auth> {
                       style: TextStyle(
                           fontSize: 33.0,
                           fontWeight: FontWeight.w900,
-                          color: Colors.black87),
+                          color: AppTheme.black2),
                     ),
                     Text(
               "Lorem Ipsum to check two lines of code to fit in the frame",
               style: TextStyle(
                           fontSize: 16.0,
                           // fontWeight: FontWeight.w900,
-                          color: Colors.black87),
+                          color: AppTheme.black2),
             ),
                   ],
                 ),
@@ -144,7 +144,7 @@ class _AuthState extends State<Auth> {
                               children: [
                                 TextFormField(
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: AppTheme.black,
                                     fontSize: 15,
                                   ),
                                   controller: emailController,
@@ -157,7 +157,7 @@ class _AuthState extends State<Auth> {
                                 
                                 TextFormField(
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: AppTheme.black,
                                     fontSize: 15,
                                   ),
                                   obscureText: isObscure,
@@ -178,7 +178,7 @@ class _AuthState extends State<Auth> {
                                   "Forgot Password?",
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
-                                    color: Colors.grey,
+                                    color: AppTheme.grey,
                                     fontWeight: FontWeight.w800,
                                     fontSize: 12.0,
                                   ),
@@ -206,13 +206,13 @@ class _AuthState extends State<Auth> {
                             minWidth: 250,
                             height: 60,
                             child: RaisedButton(
-                                color: Colors.black87,
+                                color: AppTheme.black2,
                                 child: Text(
                                   "Sign In",
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.w600,
-                                      color: Colors.white),
+                                      color: AppTheme.white),
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius:

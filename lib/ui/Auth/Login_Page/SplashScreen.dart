@@ -2,6 +2,7 @@ library custom_splash;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:iiit_sonepat_stable/constants/theme.dart';
 
 Widget _home;
 Function _customFunction;
@@ -23,7 +24,7 @@ class CustomSplash extends StatefulWidget {
       Function customFunction,
       int duration,
       CustomSplashType type,
-      Color backGroundColor = Colors.white,
+      Color backGroundColor = AppTheme.white,
       String animationEffect = 'fade-in',
       double logoSize = 250.0,
     }) {

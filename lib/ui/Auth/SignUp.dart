@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/constants/routes.dart';
+import 'package:iiit_sonepat_stable/constants/theme.dart';
 import 'package:iiit_sonepat_stable/constants/validators.dart';
 
 class SignIn extends StatefulWidget {
@@ -46,7 +47,7 @@ class _SignInState extends State<SignIn> {
                               color: Color.fromRGBO(205, 204, 202, 0.4)),
                           prefixIcon: Icon(
                             Icons.email,
-                            color: Color.fromRGBO(205, 204, 202, 1),
+                            color: AppTheme.textDecorationColor,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -57,7 +58,7 @@ class _SignInState extends State<SignIn> {
                         backgroundColor: Color.fromRGBO(52, 59, 69, 1),
                         // ignore: deprecated_member_use
                         color: Theme.of(context).textTheme.body2.color,
-                        decorationColor: Color.fromRGBO(205, 204, 202, 1),
+                        decorationColor: AppTheme.textDecorationColor,
                       ),
                     ),
                   ),
@@ -76,7 +77,7 @@ class _SignInState extends State<SignIn> {
                               color: Color.fromRGBO(205, 204, 202, 0.4)),
                           prefixIcon: Icon(
                             Icons.lock,
-                            color: Color.fromRGBO(205, 204, 202, 1),
+                            color: AppTheme.textDecorationColor,
                           ),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0)),
