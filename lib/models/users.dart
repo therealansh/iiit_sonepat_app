@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 //Demo USERModel TODO need to be changed only for demo purpose
 class User {
   final String name;
@@ -22,7 +20,7 @@ class User {
     this.id,
   });
 
-  factory User.fromDocument(DocumentSnapshot doc) {
+  factory User.fromDocument(doc) {
     return User(
       name: doc.data()['name'],
       roll: doc.data()['roll'],

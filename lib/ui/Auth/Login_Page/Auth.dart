@@ -81,25 +81,28 @@ class _AuthState extends State<Auth> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
 
-            Padding(
-              padding: const EdgeInsets.only(top:16.0,left: 16.0),
-              child: InkWell(
-                        child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.black87,
-                    size: 35,
-                  ),
-                  onTap: ()=>Navigator.pop(context),
-                      ),
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: InkWell(
+                          child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.black87,
+                      size: 35,
+                    ),
+                    onTap: ()=>Navigator.pop(context),
+                        ),
+              ),
             ),
 
             Expanded(
-              flex:2,
+              flex:3,
               child: Container(
+                // color: Colors.red,
                 padding: EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       "Sign In",
@@ -109,7 +112,7 @@ class _AuthState extends State<Auth> {
                           color: Colors.black87),
                     ),
                     Text(
-              "Lorem Ipsum to check two lines of code to fit in the frame",
+              "Lorem Ipsum to check two lines of code to fit in the frame.",
               style: TextStyle(
                           fontSize: 16.0,
                           // fontWeight: FontWeight.w900,
@@ -123,7 +126,7 @@ class _AuthState extends State<Auth> {
             SizedBox(height: 16,),
 
             Expanded(
-              flex:5,
+              flex:6,
               child: Container(
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
