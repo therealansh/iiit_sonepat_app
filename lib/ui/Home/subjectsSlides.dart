@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iiit_sonepat_stable/constants/theme.dart';
 
 class SubjectButton extends StatelessWidget {
   const SubjectButton(
@@ -42,7 +43,7 @@ class SubjectButton extends StatelessWidget {
                   "$subject",
                   style: TextStyle(
                       fontSize: 28.0,
-                      color: Colors.white,
+                      color: AppTheme.white,
                       fontFamily: 'Questrial'),
                 ),
                 CircleAvatar(

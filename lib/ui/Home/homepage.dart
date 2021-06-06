@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iiit_sonepat_stable/constants/theme.dart';
 import 'package:iiit_sonepat_stable/ui/Home/subjectsSlides.dart';
 import 'package:iiit_sonepat_stable/ui/Home/slider.dart';
 import 'package:iiit_sonepat_stable/constants/screenSize.dart';
@@ -24,12 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
               new GestureDetector(
                 onTap: () => Navigator.of(context).pop(false),
                 child: roundedButton(
-                    "No", const Color(0xFF167F67), const Color(0xFFFFFFFF)),
+                    "No", const Color(0xFF167F67), AppTheme.white),
               ),
               new GestureDetector(
                 onTap: () => Navigator.of(context).pop(true),
                 child: roundedButton(
-                    " Yes ", const Color(0xFF167F67), const Color(0xFFFFFFFF)),
+                    " Yes ", const Color(0xFF167F67), AppTheme.white),
               ),
             ],
           ),
@@ -114,11 +115,11 @@ class _MyAppState extends State<MyApp> {
     SizeConfig().init(context);
     return AnimatedContainer(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.white,
         boxShadow: [
           //BoxShadow
           BoxShadow(
-            color: Colors.grey,
+            color: AppTheme.grey,
             offset: const Offset(-5, -5),
             blurRadius: 50,
             spreadRadius: 0.1,
@@ -156,7 +157,7 @@ class _MyAppState extends State<MyApp> {
                                   ? IconButton(
                                       icon: Icon(
                                         Icons.arrow_back,
-                                        color: Colors.white,
+                                        color: AppTheme.white,
                                       ),
                                       onPressed: () {
                                         setState(() {
@@ -169,7 +170,7 @@ class _MyAppState extends State<MyApp> {
                                   : IconButton(
                                       icon: Icon(
                                         Icons.menu,
-                                        color: Colors.white,
+                                        color: AppTheme.white,
                                       ),
                                       onPressed: () {
                                         setState(() {
@@ -190,7 +191,7 @@ class _MyAppState extends State<MyApp> {
                                       Text(
                                         "$greeting",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: AppTheme.white,
                                           fontSize: 35.0,
                                           fontFamily: 'Questrial',
                                         ),
@@ -222,7 +223,7 @@ class _MyAppState extends State<MyApp> {
                                 Text(
                                   "$userName",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: AppTheme.white,
                                     textBaseline: TextBaseline.alphabetic,
                                     fontSize: 25.0,
                                     fontFamily: 'Questrial',
@@ -239,7 +240,7 @@ class _MyAppState extends State<MyApp> {
                                 Text(
                                   "$yearOfStudent year",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: AppTheme.white,
                                     fontSize: 20.0,
                                     fontFamily: 'Questrial',
                                   ),
@@ -284,8 +285,8 @@ class _MyAppState extends State<MyApp> {
                   height: height,
                   width: width,
                   subject: "Communication Skills",
-                  color1: Colors.deepPurple,
-                  color2: Colors.lightBlueAccent,
+                  color1: AppTheme.deepPurple,
+                  color2: AppTheme.lightBlueAccent,
                   address: "assets/byAditya/cs.png",
                 ),
                 SubjectButton(
@@ -299,8 +300,8 @@ class _MyAppState extends State<MyApp> {
                   height: height,
                   width: width,
                   subject: "Data Structures",
-                  color1: Colors.black,
-                  color2: Colors.black12,
+                  color1: AppTheme.black,
+                  color2: AppTheme.black3,
                   address: "assets/byAditya/ds.png",
                 ),
                 SubjectButton(
@@ -314,8 +315,8 @@ class _MyAppState extends State<MyApp> {
                   height: height,
                   width: width,
                   subject: "Web Designing",
-                  color1: Colors.lightBlueAccent,
-                  color2: Colors.lightGreen,
+                  color1: AppTheme.lightBlueAccent,
+                  color2: AppTheme.lightGreen,
                   address: "assets/byAditya/wd.png",
                 ),
                 SubjectButton(
@@ -329,8 +330,8 @@ class _MyAppState extends State<MyApp> {
                   height: height,
                   width: width,
                   subject: "Mathematics",
-                  color1: Colors.red,
-                  color2: Colors.yellow,
+                  color1: AppTheme.red,
+                  color2: AppTheme.yellow,
                   address: "assets/byAditya/mathFinal.jpg",
                 ),
                 SubjectButton(
