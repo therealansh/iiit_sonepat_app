@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:iiit_sonepat_stable/ui/Auth/Login_Page/Auth.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
 
 class DrawerScreen extends StatefulWidget {
@@ -268,7 +269,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                                         onPressed: () => Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => HomeScreen(),
+                                            builder: (context) => Auth(),
                                           ),
                                         ).then(
                                           (value) {
