@@ -144,6 +144,7 @@ class _AuthState extends State<Auth> {
                             child: Column(
                               children: [
                                 TextFormField(
+                                  autovalidateMode: AutovalidateMode.always,
                                   validator: emailValidator,
                                   style: TextStyle(
                                     color: Colors.black,
@@ -158,6 +159,7 @@ class _AuthState extends State<Auth> {
                                 ),
                                 
                                 TextFormField(
+                                  autovalidateMode: AutovalidateMode.always,
                                   validator: pwdValidator,
                                   style: TextStyle(
                                     color: Colors.black,
@@ -224,7 +226,7 @@ class _AuthState extends State<Auth> {
                                 onPressed: () {
                                   if (!formAuthKey.currentState.validate()) {
                                     ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(content: Text('Processing Data')));
+                                        .showSnackBar(SnackBar(content: Text('Oops Something went wrong.')));
                                   }
                                   else {
                                     Navigator.push(

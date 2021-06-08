@@ -8,7 +8,7 @@ Function(String) pwdValidator = (String value) {
 
 Function(String) emailValidator = (String value) {
   Pattern pattern =
-      r'^[a-z]+[0-9]{8}+@iiitsonepat.ac.in$';
+      r'^[a-z]+\.([0-9]{8})+(@iiitsonepat.ac.in)$';
   RegExp regex = new RegExp(pattern);
   if (!regex.hasMatch(value)) {
     return 'Email format is invalid';
