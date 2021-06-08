@@ -226,7 +226,6 @@ class _AuthState extends State<Auth> {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(content: Text('Processing Data')));
                                   }
-                                  //[TODO] ADD VALIDATOR HERE
                                   else {
                                     Navigator.push(
                                       context,
