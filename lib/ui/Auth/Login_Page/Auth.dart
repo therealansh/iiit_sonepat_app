@@ -225,8 +225,7 @@ class _AuthState extends State<Auth> {
                                 ),
                                 onPressed: () {
                                   if (!formAuthKey.currentState.validate()) {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(content: Text('Oops Something went wrong.')));
+                                    Fluttertoast.showToast(msg: 'Oops something went wrong');
                                   }
                                   else {
                                     Navigator.push(
