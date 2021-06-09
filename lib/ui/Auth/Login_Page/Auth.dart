@@ -24,51 +24,48 @@ class _AuthState extends State<Auth> {
 
   bool isObscure = true;
 
-
-  InputDecoration inputDecor(String hint, IconData prefix, bool obscure, IconData suffix){
+  InputDecoration inputDecor(
+      String hint, IconData prefix, bool obscure, IconData suffix) {
     return InputDecoration(
-        enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.transparent),
-                borderRadius: BorderRadius.all(
-            Radius.circular(30.0),
-          ),
-            ),
-
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(30.0),
-          ),
-          borderSide: BorderSide(color: Colors.grey[100]),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.all(
+          Radius.circular(30.0),
         ),
-        hintText: hint,
-        filled: true,
-        fillColor: Colors.grey.shade200,
-        prefixIcon: Icon(
-          prefix,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(30.0),
+        ),
+        borderSide: BorderSide(color: Colors.grey[100]),
+      ),
+      hintText: hint,
+      filled: true,
+      fillColor: Colors.grey.shade200,
+      prefixIcon: Icon(
+        prefix,
+        size: 25.0,
+        color: Colors.black,
+      ),
+      suffixIcon: IconButton(
+        onPressed: () {
+          setState(() {
+            isObscure = !isObscure;
+          });
+        },
+        icon: Icon(
+          isObscure && obscure ? Icons.visibility_off : suffix,
           size: 25.0,
           color: Colors.black,
         ),
-
-        suffixIcon:IconButton(
-          onPressed: (){
-            setState(() {
-              isObscure = !isObscure;
-            });
-          },
-
-          icon: Icon(isObscure&&obscure?
-           Icons.visibility_off:suffix,
-            size: 25.0,
-            color: Colors.black,
-          ),
-        ),
-        hintStyle: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w900,
-          fontStyle: FontStyle.normal,
-        ),
-      );
+      ),
+      hintStyle: TextStyle(
+        color: Colors.grey,
+        fontSize: 12.0,
+        fontWeight: FontWeight.w900,
+        fontStyle: FontStyle.normal,
+      ),
+    );
   }
 
   @override
@@ -81,21 +78,19 @@ class _AuthState extends State<Auth> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
             Padding(
-              padding: const EdgeInsets.only(top:16.0,left: 16.0),
+              padding: const EdgeInsets.only(top: 16.0, left: 16.0),
               child: InkWell(
-                        child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.black87,
-                    size: 35,
-                  ),
-                  onTap: ()=>Navigator.pop(context),
-                      ),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black87,
+                  size: 35,
+                ),
+                onTap: () => Navigator.pop(context),
+              ),
             ),
-
             Expanded(
-              flex:2,
+              flex: 2,
               child: Container(
                 padding: EdgeInsets.all(16),
                 child: Column(
@@ -110,27 +105,28 @@ class _AuthState extends State<Auth> {
                           color: Colors.black87),
                     ),
                     Text(
-              "Lorem Ipsum to check two lines of code to fit in the frame",
-              style: TextStyle(
+                      "Lorem Ipsum to check two lines of code to fit in the frame",
+                      style: TextStyle(
                           fontSize: 16.0,
                           // fontWeight: FontWeight.w900,
                           color: Colors.black87),
-            ),
+                    ),
                   ],
                 ),
               ),
             ),
-
-            SizedBox(height: 16,),
-
+            SizedBox(
+              height: 16,
+            ),
             Expanded(
-              flex:5,
+              flex: 5,
               child: Container(
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
                   color: AppTheme.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40),topRight:Radius.circular(40)),
-
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 32.0),
@@ -144,22 +140,24 @@ class _AuthState extends State<Auth> {
                             child: Column(
                               children: [
                                 TextFormField(
-                                  autovalidateMode: AutovalidateMode.always,
+                                  // autovalidateMode: AutovalidateMode.always,
                                   validator: emailValidator,
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 15,
                                   ),
                                   controller: emailController,
-                                  decoration: inputDecor("name.rollno@iiitsonepat.ac.in", Icons.mail_outline, false,null),
+                                  decoration: inputDecor(
+                                      "name.rollno@iiitsonepat.ac.in",
+                                      Icons.mail_outline,
+                                      false,
+                                      null),
                                 ),
-
                                 SizedBox(
                                   height: 12.0,
                                 ),
-                                
                                 TextFormField(
-                                  autovalidateMode: AutovalidateMode.always,
+                                  // autovalidateMode: AutovalidateMode.always,
                                   validator: pwdValidator,
                                   style: TextStyle(
                                     color: Colors.black,
@@ -167,9 +165,12 @@ class _AuthState extends State<Auth> {
                                   ),
                                   obscureText: isObscure,
                                   controller: passwordController,
-                                  decoration: inputDecor("Password", Icons.lock_outline_rounded, true,Icons.visibility),
+                                  decoration: inputDecor(
+                                      "Password",
+                                      Icons.lock_outline_rounded,
+                                      true,
+                                      Icons.visibility),
                                 ),
-
                               ],
                             ),
                           ),
@@ -220,19 +221,17 @@ class _AuthState extends State<Auth> {
                                       color: Colors.white),
                                 ),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      new BorderRadius.circular(30.0),
+                                  borderRadius: new BorderRadius.circular(30.0),
                                 ),
                                 onPressed: () {
                                   if (!formAuthKey.currentState.validate()) {
-                                    Fluttertoast.showToast(msg: 'Oops something went wrong');
-                                  }
-                                  else {
+                                    Fluttertoast.showToast(
+                                        msg: 'Oops something went wrong');
+                                  } else {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomeScreen()),
+                                          builder: (context) => HomeScreen()),
                                     );
                                   }
                                 }),

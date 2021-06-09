@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iiit_sonepat_stable/ui/Auth/Login_Page/Auth.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
+import 'package:iiit_sonepat_stable/ui/About/about.dart';
+import 'package:iiit_sonepat_stable/ui/AttendancePage/attendance_page.dart';
+import 'package:iiit_sonepat_stable/ui/FacultyPage/faculty_grid.dart';
+import 'package:iiit_sonepat_stable/ui/Meeting/meet.dart';
+import 'package:iiit_sonepat_stable/ui/News/news.dart';
 
 class DrawerScreen extends StatefulWidget {
   const DrawerScreen({Key key}) : super(key: key);
@@ -78,12 +83,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         ),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => AboutPage(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => About(),
+                          ),
+                        );
                       },
                     ),
                     ListTile(
@@ -100,12 +105,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         ),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => AttendancePage(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AttendancePage(),
+                          ),
+                        );
                       },
                     ),
                     ListTile(
@@ -122,12 +127,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         ),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => FacultyPage(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FacultyGrid(),
+                          ),
+                        );
                       },
                     ),
                     ListTile(
@@ -144,12 +149,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         ),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => Meeting(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Meeting(),
+                          ),
+                        );
                       },
                     ),
                     ListTile(
@@ -166,36 +171,36 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         ),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => LatestNewsPage(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LatestNewsPage(),
+                          ),
+                        );
                       },
                     ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.camera,
-                        color: Colors.white,
-                      ),
-                      horizontalTitleGap: 6,
-                      title: Text(
-                        'Socials',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => SocialsPage(),
-                        //   ),
-                        // );
-                      },
-                    ),
+                    // ListTile(
+                    //   leading: Icon(
+                    //     Icons.camera,
+                    //     color: Colors.white,
+                    //   ),
+                    //   horizontalTitleGap: 6,
+                    //   title: Text(
+                    //     'Socials',
+                    //     style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontWeight: FontWeight.bold,
+                    //     ),
+                    //   ),
+                    //   onTap: () {
+                    //     // Navigator.push(
+                    //     //   context,
+                    //     //   MaterialPageRoute(
+                    //     //     builder: (context) => SocialsPage(),
+                    //     //   ),
+                    //     // );
+                    //   },
+                    // ),
                     ListTile(
                       leading: Icon(
                         Icons.star,
@@ -222,7 +227,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
               ),
               SizedBox(
-                height: height / 10,
+                height: height / 6,
               ),
               Container(
                 child: Padding(
