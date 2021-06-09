@@ -28,7 +28,8 @@ class _Meeting extends State<Meeting> {
   Future<void> _getLevel(text) async {
     String meetingStatus;
     try {
-      final String status=await  platform.invokeMethod('Meeting started', {"text": text});
+      final String status =
+          await platform.invokeMethod('Meeting started', {"text": text});
       meetingStatus = 'Meeting Status : $status';
     } on PlatformException catch (e) {
       meetingStatus = "'${e.message}'";
@@ -36,7 +37,6 @@ class _Meeting extends State<Meeting> {
 
     setState(() {
       _meetingStatus = meetingStatus;
-
     });
   }
 
@@ -47,30 +47,34 @@ class _Meeting extends State<Meeting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(79, 84, 89, 1),
+      ),
       backgroundColor: Color.fromRGBO(52, 59, 69, 1),
       body: Container(
         child: ListView(
           children: <Widget>[
             Container(
                 constraints: BoxConstraints.expand(
-                  width: MediaQuery.of(context).size.width ,
+                  width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.5,
                 ),
-                child: Image.asset('assets/images/class.png',)
-                    ),
+                child: Image.asset(
+                  'assets/images/class.png',
+                )),
             Form(
               key: join,
               child: Column(
                 children: <Widget>[
                   Padding(
                     padding:
-                    EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+                        EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
                     child: TextFormField(
                       controller: myController,
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) => emailValidator(value),
                       decoration: InputDecoration(
-                        //labelText: "E-Mail",
+                          //labelText: "E-Mail",
                           hintText: "Enter name to Create Room or Link to Join",
                           hintStyle: TextStyle(
                               fontSize: 15.0,
@@ -104,22 +108,24 @@ class _Meeting extends State<Meeting> {
                 minWidth: 20,
                 height: 45,
                 child: RaisedButton(
-                  onPressed: () {_getLevel(myController.text);
-                 return showDialog(
-                  context: context,
-                  builder: (ctx) => AlertDialog(
-                  title: Text("Alert!"),
-                  content: Text(_meetingStatus),
-                  actions: <Widget>[
-                   FlatButton(
-                     onPressed: () {
-                     Navigator.of(ctx).pop();
-                     },
-                   child: Text("Okay"),
-                    ),
-                  ],
-                  ),
-                  );},
+                  onPressed: () {
+                    _getLevel(myController.text);
+                    return showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                        title: Text("Alert!"),
+                        content: Text(_meetingStatus),
+                        actions: <Widget>[
+                          FlatButton(
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                            },
+                            child: Text("Okay"),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                   child: Text("Join",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
