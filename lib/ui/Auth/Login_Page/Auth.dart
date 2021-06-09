@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iiit_sonepat_stable/constants/screenSize.dart';
 import 'package:iiit_sonepat_stable/constants/theme.dart';
+import 'package:iiit_sonepat_stable/constants/validators.dart';
 import 'package:iiit_sonepat_stable/ui/Auth/Login_Page/Landing.dart';
 import 'package:iiit_sonepat_stable/main.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
@@ -143,6 +144,8 @@ class _AuthState extends State<Auth> {
                             child: Column(
                               children: [
                                 TextFormField(
+                                  autovalidateMode: AutovalidateMode.always,
+                                  validator: emailValidator,
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 15,
@@ -156,6 +159,8 @@ class _AuthState extends State<Auth> {
                                 ),
                                 
                                 TextFormField(
+                                  autovalidateMode: AutovalidateMode.always,
+                                  validator: pwdValidator,
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 15,
@@ -219,13 +224,17 @@ class _AuthState extends State<Auth> {
                                       new BorderRadius.circular(30.0),
                                 ),
                                 onPressed: () {
-                                  //[TODO] ADD VALIDATOR HERE
+                                  if (!formAuthKey.currentState.validate()) {
+                                    Fluttertoast.showToast(msg: 'Oops something went wrong');
+                                  }
+                                  else {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
                                               HomeScreen()),
                                     );
+                                  }
                                 }),
                           ),
                         ),
