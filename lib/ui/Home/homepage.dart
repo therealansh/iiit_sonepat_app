@@ -1,70 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iiit_sonepat_stable/ui/Home/subjectsSlides.dart';
-import 'package:iiit_sonepat_stable/ui/Home/slider.dart';
 import 'package:iiit_sonepat_stable/constants/screenSize.dart';
 import 'package:iiit_sonepat_stable/ui/Home/drawerScreen.dart';
-import 'package:iiit_sonepat_stable/ui/AttendancePage/attendance_page.dart';
-import 'package:iiit_sonepat_stable/ui/SubjectPages/subjectpage.dart';
-
+import 'package:iiit_sonepat_stable/widgets/backPopScopeWidget.dart';
+import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Future<bool> _onBackPressed() {
-    return showDialog(
-          context: context,
-          builder: (context) => new AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
-            actions: <Widget>[
-              new GestureDetector(
-                onTap: () => Navigator.of(context).pop(false),
-                child: roundedButton(
-                    "No", const Color(0xFF167F67), const Color(0xFFFFFFFF)),
-              ),
-              new GestureDetector(
-                onTap: () => Navigator.of(context).pop(true),
-                child: roundedButton(
-                    " Yes ", const Color(0xFF167F67), const Color(0xFFFFFFFF)),
-              ),
-            ],
-          ),
-        ) ??
-        false;
-  }
-
-  Widget roundedButton(String buttonLabel, Color bgColor, Color textColor) {
-    var loginBtn = new Container(
-      padding: EdgeInsets.all(5.0),
-      alignment: FractionalOffset.center,
-      decoration: new BoxDecoration(
-        color: bgColor,
-        borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: const Color(0xFF696969),
-            offset: Offset(1.0, 6.0),
-            blurRadius: 0.001,
-          ),
-        ],
-      ),
-      child: Text(
-        buttonLabel,
-        style: new TextStyle(
-            color: textColor, fontSize: 20.0, fontWeight: FontWeight.bold),
-      ),
-    );
-    return loginBtn;
-  }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: _onBackPressed,
+      onWillPop: () {
+        return onBackPressed(context);
+      },
       child: MaterialApp(
         home: Scaffold(
           body: Stack(
@@ -89,21 +42,9 @@ class _MyAppState extends State<MyApp> {
   String userName = "Aditya Chaudhary";
   double xOffset = 0;
   double yOffset = 0;
-  double scalefactor = 1;
+  double scaleFactor = 1;
   bool isDrawerOpen = false;
   String yearOfStudent = "First";
-
-  String greetingMessage() {
-    var timeNow = DateTime.now().hour;
-
-    if (timeNow <= 12) {
-      return 'Good Morning';
-    } else if ((timeNow > 12) && (timeNow <= 16)) {
-      return 'Good Afternoon';
-    } else {
-      return 'Good Evening';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +68,7 @@ class _MyAppState extends State<MyApp> {
         ],
       ),
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
-        ..scale(scalefactor)
+        ..scale(scaleFactor)
         ..rotateY(isDrawerOpen ? -0.5 : 0),
       duration: Duration(milliseconds: 200),
       child: Scaffold(
@@ -162,7 +103,7 @@ class _MyAppState extends State<MyApp> {
                                         setState(() {
                                           xOffset = 0;
                                           yOffset = 0;
-                                          scalefactor = 1;
+                                          scaleFactor = 1;
                                           isDrawerOpen = false;
                                         });
                                       })
@@ -175,7 +116,7 @@ class _MyAppState extends State<MyApp> {
                                         setState(() {
                                           xOffset = 180;
                                           yOffset = 70;
-                                          scalefactor = 0.8;
+                                          scaleFactor = 0.8;
                                           isDrawerOpen = true;
                                         });
                                         _scaffoldKey.currentState.openDrawer();
@@ -187,14 +128,7 @@ class _MyAppState extends State<MyApp> {
                                       SizedBox(
                                         height: height / 40,
                                       ),
-                                      Text(
-                                        "$greeting",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 35.0,
-                                          fontFamily: 'Questrial',
-                                        ),
-                                      ),
+                                      HomePageTextWidget(text: greeting, fontSize: 35.0,),
                                     ],
                                   ),
                                 ],
@@ -214,155 +148,16 @@ class _MyAppState extends State<MyApp> {
                             SizedBox(
                               height: 70.0,
                             ),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: width / 20,
-                                ),
-                                Text(
-                                  "$userName",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    textBaseline: TextBaseline.alphabetic,
-                                    fontSize: 25.0,
-                                    fontFamily: 'Questrial',
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: width / 20,
-                                ),
-                                Text(
-                                  "$yearOfStudent year",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                    fontFamily: 'Questrial',
-                                  ),
-                                ),
-                              ],
-                            ),
+                            HomePageTextWidget(text: userName, width: width/20, fontSize: 25.0,),
+                            HomePageTextWidget(text: "$yearOfStudent Year", width: width/20, fontSize: 20.0,)
                           ],
                         ),
                       ),
-                      Positioned(
-                        top: height / 4,
-                        left: width / 25,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return AttendancePage();
-                                },
-                              ),
-                            );
-                          },
-                          child: CircleAvatar(
-                            radius: 30.0,
-                            backgroundImage:
-                                AssetImage('assets/byAditya/attendance.jpg'),
-                          ),
-                        ),
-                      )
+                      PositionedRoutingButton(height: height, width: width),
                     ],
                   ),
                 ),
-                SubjectButton(
-                  navigateTo: SubjectPage(
-                    initialPage: 20,
-                    subjectName: 'Communication Skills',
-                    imagePath: "assets/subjectPageImages/communication_skill.webp",
-                    quote:
-                        "Maths is the language in which god has written the universe.",
-                  ),
-                  height: height,
-                  width: width,
-                  subject: "Communication Skills",
-                  color1: Colors.deepPurple,
-                  color2: Colors.lightBlueAccent,
-                  address: "assets/byAditya/cs.png",
-                ),
-                SubjectButton(
-                  navigateTo: SubjectPage(
-                    initialPage: 19,
-                    subjectName: 'Data Structures',
-                    imagePath: "assets/subjectPageImages/dsa.webp",
-                    quote:
-                        "Maths is the language in which god has written the universe.",
-                  ),
-                  height: height,
-                  width: width,
-                  subject: "Data Structures",
-                  color1: Colors.black,
-                  color2: Colors.black12,
-                  address: "assets/byAditya/ds.png",
-                ),
-                SubjectButton(
-                  navigateTo: SubjectPage(
-                    initialPage: 21,
-                    subjectName: 'Web Designing',
-                    imagePath: "assets/subjectPageImages/web_design.webp",
-                    quote:
-                        "Maths is the language in which god has written the universe.",
-                  ),
-                  height: height,
-                  width: width,
-                  subject: "Web Designing",
-                  color1: Colors.lightBlueAccent,
-                  color2: Colors.lightGreen,
-                  address: "assets/byAditya/wd.png",
-                ),
-                SubjectButton(
-                  navigateTo: SubjectPage(
-                    initialPage: 17,
-                    subjectName: 'Mathematics',
-                    imagePath: "assets/subjectPageImages/maths.png",
-                    quote:
-                        "Maths is the language in which god has written the universe.",
-                  ),
-                  height: height,
-                  width: width,
-                  subject: "Mathematics",
-                  color1: Colors.red,
-                  color2: Colors.yellow,
-                  address: "assets/byAditya/mathFinal.jpg",
-                ),
-                SubjectButton(
-                  navigateTo: SubjectPage(
-                    initialPage: 22,
-                    subjectName: 'Application Programming',
-                    imagePath: "assets/subjectPageImages/application_dev.jpeg",
-                    quote:
-                        "Maths is the language in which god has written the universe.",
-                  ),
-                  height: height,
-                  width: width,
-                  subject: "Application Programming",
-                  color1: Color(0xFFFC7170),
-                  color2: Color(0xFFEFB8B0),
-                  address: "assets/byAditya/ad.png",
-                ),
-                SubjectButton(
-                  navigateTo: SubjectPage(
-                    initialPage: 18,
-                    subjectName: 'Digital Electronics',
-                    imagePath: "assets/subjectPageImages/dig_elec.gif",
-                    quote:
-                        "Maths is the language in which god has written the universe.",
-                  ),
-                  height: height,
-                  width: width,
-                  subject: "Digital Electronics",
-                  address: "assets/byAditya/de.png",
-                  color1: Colors.orange,
-                  color2: Colors.yellow,
-                ),
+                subjectButtonWidgets,
               ],
             ),
           ),
@@ -371,3 +166,5 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+
