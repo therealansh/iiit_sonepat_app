@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iiit_sonepat_stable/constants/decorations.dart';
 import 'package:iiit_sonepat_stable/constants/screenSize.dart';
 import 'package:iiit_sonepat_stable/constants/theme.dart';
 import 'package:iiit_sonepat_stable/constants/validators.dart';
-import 'package:iiit_sonepat_stable/ui/Auth/Login_Page/Landing.dart';
-import 'package:iiit_sonepat_stable/main.dart';
 import 'package:iiit_sonepat_stable/ui/Home/homepage.dart';
-import 'FogetPasswordPage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Auth extends StatefulWidget {
@@ -14,7 +12,6 @@ class Auth extends StatefulWidget {
 }
 
 class _AuthState extends State<Auth> {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final TextEditingController emailController = new TextEditingController();
 
@@ -23,53 +20,6 @@ class _AuthState extends State<Auth> {
   final GlobalKey<FormState> formAuthKey = GlobalKey<FormState>();
 
   bool isObscure = true;
-
-
-  InputDecoration inputDecor(String hint, IconData prefix, bool obscure, IconData suffix){
-    return InputDecoration(
-        enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.transparent),
-                borderRadius: BorderRadius.all(
-            Radius.circular(30.0),
-          ),
-            ),
-
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(30.0),
-          ),
-          borderSide: BorderSide(color: Colors.grey[100]),
-        ),
-        hintText: hint,
-        filled: true,
-        fillColor: Colors.grey.shade200,
-        prefixIcon: Icon(
-          prefix,
-          size: 25.0,
-          color: Colors.black,
-        ),
-
-        suffixIcon:IconButton(
-          onPressed: (){
-            setState(() {
-              isObscure = !isObscure;
-            });
-          },
-
-          icon: Icon(isObscure&&obscure?
-           Icons.visibility_off:suffix,
-            size: 25.0,
-            color: Colors.black,
-          ),
-        ),
-        hintStyle: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w900,
-          fontStyle: FontStyle.normal,
-        ),
-      );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,21 +31,19 @@ class _AuthState extends State<Auth> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
             Padding(
-              padding: const EdgeInsets.only(top:16.0,left: 16.0),
+              padding: const EdgeInsets.only(top: 16.0, left: 16.0),
               child: InkWell(
-                        child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.black87,
-                    size: 35,
-                  ),
-                  onTap: ()=>Navigator.pop(context),
-                      ),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black87,
+                  size: 35,
+                ),
+                onTap: () => Navigator.pop(context),
+              ),
             ),
-
             Expanded(
-              flex:2,
+              flex: 2,
               child: Container(
                 padding: EdgeInsets.all(16),
                 child: Column(
@@ -110,27 +58,24 @@ class _AuthState extends State<Auth> {
                           color: Colors.black87),
                     ),
                     Text(
-              "Lorem Ipsum to check two lines of code to fit in the frame",
-              style: TextStyle(
-                          fontSize: 16.0,
-                          // fontWeight: FontWeight.w900,
-                          color: Colors.black87),
-            ),
+                      "Lorem Ipsum to check two lines of code to fit in the frame",
+                      style: TextStyle(fontSize: 16.0, color: Colors.black87),
+                    ),
                   ],
                 ),
               ),
             ),
-
-            SizedBox(height: 16,),
-
+            SizedBox(
+              height: 12,
+            ),
             Expanded(
-              flex:5,
+              flex: 5,
               child: Container(
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
                   color: AppTheme.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40),topRight:Radius.circular(40)),
-
+                  borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(40), right: Radius.circular(40)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 32.0),
@@ -151,13 +96,17 @@ class _AuthState extends State<Auth> {
                                     fontSize: 15,
                                   ),
                                   controller: emailController,
-                                  decoration: inputDecor("name.rollno@iiitsonepat.ac.in", Icons.mail_outline, false,null),
+                                  decoration: inputDecor(
+                                    hint: "name.rollno@iiitsonepat.ac.in",
+                                    prefix: Icons.mail_outline,
+                                    obscure: false,
+                                    suffix: null,
+                                    toogle: null,
+                                  ),
                                 ),
-
                                 SizedBox(
                                   height: 12.0,
                                 ),
-                                
                                 TextFormField(
                                   autovalidateMode: AutovalidateMode.always,
                                   validator: pwdValidator,
@@ -167,9 +116,17 @@ class _AuthState extends State<Auth> {
                                   ),
                                   obscureText: isObscure,
                                   controller: passwordController,
-                                  decoration: inputDecor("Password", Icons.lock_outline_rounded, true,Icons.visibility),
+                                  decoration: inputDecor(
+                                      hint: "Password",
+                                      prefix: Icons.lock_outline_rounded,
+                                      obscure: isObscure,
+                                      suffix: Icons.visibility,
+                                      toogle: () {
+                                        setState(() {
+                                          isObscure = !isObscure;
+                                        });
+                                      }),
                                 ),
-
                               ],
                             ),
                           ),
@@ -210,32 +167,32 @@ class _AuthState extends State<Auth> {
                           child: ButtonTheme(
                             minWidth: 250,
                             height: 60,
+                            // ignore: deprecated_member_use
                             child: RaisedButton(
-                                color: Colors.black87,
-                                child: Text(
-                                  "Sign In",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white),
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      new BorderRadius.circular(30.0),
-                                ),
-                                onPressed: () {
-                                  if (!formAuthKey.currentState.validate()) {
-                                    Fluttertoast.showToast(msg: 'Oops something went wrong');
-                                  }
-                                  else {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomeScreen()),
-                                    );
-                                  }
-                                }),
+                              color: Colors.black87,
+                              child: Text(
+                                "Sign In",
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0),
+                              ),
+                              onPressed: () {
+                                if (!formAuthKey.currentState.validate()) {
+                                  Fluttertoast.showToast(
+                                      msg: 'Oops something went wrong');
+                                } else {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeScreen()),
+                                  );
+                                }
+                              },
+                            ),
                           ),
                         ),
                       ],
