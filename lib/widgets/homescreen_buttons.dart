@@ -124,7 +124,7 @@ class PositionedRoutingButton extends StatelessWidget {
         },
         child: CircleAvatar(
           radius: 30.0,
-          backgroundImage: AssetImage('assets/byAditya/attendance.jpg'),
+          backgroundImage: AssetImage('assets/homepageImages/attendance.jpg'),
         ),
       ),
     );
@@ -143,7 +143,7 @@ final subjectButtonWidgets = Column(
       subject: "Communication Skills",
       color1: Colors.deepPurple,
       color2: Colors.lightBlueAccent,
-      address: "assets/byAditya/cs.png",
+      address: "assets/homepageImages/cs.png",
     ),
     SubjectButton(
       navigateTo: SubjectPage(
@@ -155,7 +155,7 @@ final subjectButtonWidgets = Column(
       subject: "Data Structures",
       color1: Colors.black,
       color2: Colors.black12,
-      address: "assets/byAditya/ds.png",
+      address: "assets/homepageImages/ds.png",
     ),
     SubjectButton(
       navigateTo: SubjectPage(
@@ -167,7 +167,7 @@ final subjectButtonWidgets = Column(
       subject: "Web Designing",
       color1: Colors.lightBlueAccent,
       color2: Colors.lightGreen,
-      address: "assets/byAditya/wd.png",
+      address: "assets/homepageImages/wd.png",
     ),
     SubjectButton(
       navigateTo: SubjectPage(
@@ -179,7 +179,7 @@ final subjectButtonWidgets = Column(
       subject: "Mathematics",
       color1: Colors.red,
       color2: Colors.yellow,
-      address: "assets/byAditya/mathFinal.jpg",
+      address: "assets/homepageImages/mathFinal.jpg",
     ),
     SubjectButton(
       navigateTo: SubjectPage(
@@ -191,7 +191,7 @@ final subjectButtonWidgets = Column(
       subject: "Application Programming",
       color1: Color(0xFFFC7170),
       color2: Color(0xFFEFB8B0),
-      address: "assets/byAditya/ad.png",
+      address: "assets/homepageImages/ad.png",
     ),
     SubjectButton(
       navigateTo: SubjectPage(
@@ -201,7 +201,7 @@ final subjectButtonWidgets = Column(
         quote: "Maths is the language in which god has written the universe.",
       ),
       subject: "Digital Electronics",
-      address: "assets/byAditya/de.png",
+      address: "assets/homepageImages/de.png",
       color1: Colors.orange,
       color2: Colors.yellow,
     ),

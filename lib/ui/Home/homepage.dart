@@ -5,6 +5,7 @@ import 'package:iiit_sonepat_stable/constants/screenSize.dart';
 import 'package:iiit_sonepat_stable/widgets/backPopScopeWidget.dart';
 import 'package:iiit_sonepat_stable/widgets/homescreen_buttons.dart';
 import 'package:iiit_sonepat_stable/constants/StringConstt.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -67,7 +68,7 @@ class _MyAppState extends State<MyApp> {
                   child: Stack(
                     children: [
                       SvgPicture.asset(
-                        'assets/byAditya/homeMain.svg',
+                        'assets/homepageImages/homeMain.svg',
                         alignment: Alignment.topCenter,
                       ),
                       Positioned(
@@ -123,7 +124,7 @@ class _MyAppState extends State<MyApp> {
                               CircleAvatar(
                                 radius: 25.0,
                                 backgroundImage:
-                                AssetImage('assets/byAditya/aditya.png'),
+                                AssetImage('assets/homepageImages/aditya.png'),
                               ),
                             ],
                           ),
